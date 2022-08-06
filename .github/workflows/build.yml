@@ -1,0 +1,40 @@
+name: Build
+
+on: 
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 13 * * *'
+
+jobs:
+  build:
+    environment: CI
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.5
+
+    - name: Checkout Branch
+      uses: actions/checkout@v2
+
+    - name: install dependencies
+      run: |
+        npm install
+    - name: build
+      run: |
+        npm run ts:build              
+    - name: license check
+      run: |
+        npm run license > license-checker.txt
+        npm run license:summary >> license-checker.txt
+    - name: package 
+      run: |
+        rm -rf dist/
+        npm pack
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.3
+      with:
+          path: |
+            *.tgz
+            license-checker.txt
