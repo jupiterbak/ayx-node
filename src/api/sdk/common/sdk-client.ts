@@ -79,7 +79,7 @@ export abstract class SdkClient {
     }
 
     /**
-     * * Creates a client for MinSphere API
+     * * Creates a client for AYX Server API
      *
      * @param {(TokenRotation | ClientCredentials | UserCredentials)} [credentialsOrAuthorizer]
      *

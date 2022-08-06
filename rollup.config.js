@@ -8,7 +8,7 @@ import { terser } from "rollup-plugin-terser";
 export default [
     // browser-friendly UMD build
     {
-        input: "dist/index.js",
+        input: "dist/src/index.js",
         output: {
             name: "@jupiterbak/ayx-node",
             file: pkg.browser,
