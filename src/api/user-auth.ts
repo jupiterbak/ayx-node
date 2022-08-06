@@ -13,33 +13,32 @@ import { isUrl } from "./utils";
 export class UserAuth extends AlteryxConnectBase implements TokenRotation {
     private _token: string;
     private _gateway: string;
-    protected _appName: string = "cli";
-    protected _appVersion: string = "1.0.0"
+    protected _user: string = "cli";
+    protected _password: string = "1.0.0"
 
     /**
      * Creates an instance of UserAuth.
      * extract token from http request headers (req.get("authorization"))
      *
-     * @param {string} token
      * @param {string} gateway
-     *
-     *
+     * @param {string} user
+     * @param {string} password
      * @memberOf UserAuth
      */
     constructor(
-        token: string, 
         gateway: string, 
-        appName: string = "cli",
-        appVersion: string = "1.0.0"
-        ) {
+        user: string,
+        password: string
+    ) {
         super();
+        
         if (!isUrl(gateway)) {
             throw new Error("the gateway must be an URL (e.g. https://localhost");
         }
+        const base64encoded = Buffer.from(`${user}:${password}`).toString("base64");
+        const token =  `Basic ${base64encoded}`;
         this._token = token.replace("Bearer", "").trim(); // just for the case that people pass complete bearer token with leading bearer
         this._gateway = gateway;
-        this._appName = appName;
-        this._appVersion = appVersion;
     }
 
     /**

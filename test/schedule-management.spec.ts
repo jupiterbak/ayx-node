@@ -9,10 +9,7 @@ chai.should();
 
 describe("[SDK] Schedule Management Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const scheduleClient = sdk.GetScheduleManagementClient();
     const userClient = sdk.GetUserManagementClient();
     const workflowClient = sdk.GetWorkflowManagementClient();

@@ -7,10 +7,7 @@ chai.should();
 
 describe("[SDK] User Group Management Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const groupClient = sdk.GetUserGroupManagementClient();
     const userClient = sdk.GetUserManagementClient();
     const groupName = `unit.test.alteryx.rocks.${new Date().getTime()}`;

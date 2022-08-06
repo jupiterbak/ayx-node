@@ -2,10 +2,11 @@ import * as debug from "debug";
 import fetch from "cross-fetch";
 import { AuthBase } from "./auth-base";
 import { TokenRotation } from "./alteryx-base";
+import { isUrl, throwError } from "./utils";
 
 const log = debug("alteryx-credentialauth");
 
-export class CredentialAuth extends AuthBase implements TokenRotation {
+export class SecretCredentialAuth extends AuthBase implements TokenRotation {
     protected async AcquireToken(): Promise<boolean> {
         const headers = {
             ...this._urlEncodedHeaders,
@@ -54,16 +55,26 @@ export class CredentialAuth extends AuthBase implements TokenRotation {
     }
 
     /**
-     * Creates an instance of CredentialAuth.
+     * Creates an instance of TokenManagerAuth.
      * @param {string} _gateway
-     * @param {string} _basicAuth
+     * @param {string} _clientid
+     * @param {string} _clientsecret
      *
-     * @memberOf CredentialAuth
+     * @memberOf TokenManagerAuth
      */
-    constructor(
-        protected _gateway: string, 
-        protected _basicAuth: string, 
-        ) {
-        super(_gateway, _basicAuth);
+     constructor(
+        protected _gateway: string,
+        protected _clientid: string,
+        protected _clientsecret: string,
+    ) {
+        const base64encoded = Buffer.from(`${_clientid}:${_clientsecret}`).toString("base64");
+        super(_gateway, `Basic ${base64encoded}`);
+
+        (!this._basicAuth || !this._basicAuth.startsWith("Basic")) &&
+            throwError(
+                "You have to pass the basic authentication header (Basic: <base64encoded login:password> in the constructor. Wrong Passkey in CLI?"
+            );
+
+        !isUrl(_gateway) && throwError("the gateway must be an URL (e.g. https://localhost:8080");
     }
 }

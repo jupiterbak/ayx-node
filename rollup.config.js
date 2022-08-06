@@ -10,7 +10,7 @@ export default [
     {
         input: "dist/index.js",
         output: {
-            name: "@jupiterbak/alteryx-nodejs",
+            name: "@jupiterbak/ayx-node",
             file: pkg.browser,
             format: "umd",
         },

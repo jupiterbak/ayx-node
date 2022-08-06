@@ -9,10 +9,7 @@ chai.should();
 
 describe("[SDK] Job Management Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const wClient = sdk.GetWorkflowManagementClient();
     const jClient = sdk.GetJobManagementClient();
 

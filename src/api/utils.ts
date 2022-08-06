@@ -3,6 +3,7 @@ import * as crypto from "crypto";
 import * as fs from "fs";
 import * as os from "os";
 import { URL } from "url";
+import { AlteryxCredentials, SecretCredentials } from "./sdk/common/credentials";
 
 const groupby = require("json-groupby");
 
@@ -99,18 +100,32 @@ export const storeAuth = (auth: { credentials: authJson[] }) => {
     fs.writeFileSync(pathName, JSON.stringify(auth));
 };
 
-export const loadAuth = (): authJson => {
-    const fullConfig = getFullConfig();
+export const loadAuth = (): SecretCredentials => {
+    let result: SecretCredentials | undefined = undefined;
 
-    let result: authJson | undefined = undefined;
+    // Load configuration from environment variable    
+    if (!process.env.AYX_SERVER_API || !process.env.AYX_SERVER_CLIENTID || !process.env.AYX_SERVER_CLIENTSECRET) {
+        console.error("--------------------------------------------------------------------------------------------");
+        console.error(
+            "\x1b[31m%s\x1b[0m",
+            "\nPlease set the environment variables before running unit tests: AYX_SERVER_API, AYX_SERVER_CLIENTID, AYX_SERVER_CLIENTSECRET"
+        );
+        console.error("\nsee: https://help.alteryx.com\n");
+        console.error("--------------------------------------------------------------------------------------------");
+        process.exit(-1);
+    }
 
-    for (let index = 0; index < fullConfig.credentials.length; index++) {
-        const element = fullConfig.credentials[index];
+    const gateway = process.env.AYX_SERVER_API;
+    const clientid = process.env.AYX_SERVER_CLIENTID;
+    const clientsecret = process.env.AYX_SERVER_CLIENTSECRET;
 
-        if (element.selected) {
-            result = element;
-            break;
-        }
+    if(gateway && clientid && clientsecret){
+        const newEntry: SecretCredentials = {
+            clientid: clientid,
+            clientsecret: clientsecret,
+            gateway: gateway
+        };
+        result = newEntry;
     }
 
     !result &&

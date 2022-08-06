@@ -43,28 +43,23 @@ export class TokenManagerAuth extends AuthBase implements TokenRotation {
     /**
      * Creates an instance of TokenManagerAuth.
      * @param {string} _gateway
-     * @param {string} _basicAuth
-     * @param {string} _appName
-     * @param {string} _appVersion
+     * @param {string} _token
      *
      * @memberOf TokenManagerAuth
      */
     constructor(
         protected _gateway: string,
-        protected _basicAuth: string,
-        protected _appName: string = "cli",
-        protected _appVersion: string = "1.0.0"
+        protected _token: string,
     ) {
-        super(_gateway, _basicAuth);
+        super(_gateway, `Basic ${_token}`);
 
-        (!_basicAuth || !_basicAuth.startsWith("Basic")) &&
+        !isUrl(_gateway) && throwError("the gateway must be an URL (e.g. https://localhost:8080");
+
+        (!this._basicAuth || !this._basicAuth.startsWith("Basic")) &&
             throwError(
                 "You have to pass the basic authentication header (Basic: <base64encoded login:password> in the constructor. Wrong Passkey in CLI?"
             );
 
-        !isUrl(_gateway) && throwError("the gateway must be an URL (e.g. https://localhost:8080");
-
-        !_appName && throwError("You have to provide the app name");
-        !_appVersion && throwError("You have to provide the app version");
+        
     }
 }

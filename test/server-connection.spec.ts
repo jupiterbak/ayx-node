@@ -7,10 +7,7 @@ chai.should();
 
 describe("[SDK] Server Connection Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const serverConnectionClient = sdk.GetServerConnectionClient();
     const _serverDataConnectionName = `${new Date().getTime()}@unit.test.alteryx.rocks`;
 

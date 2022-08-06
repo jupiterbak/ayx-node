@@ -9,10 +9,7 @@ chai.should();
 
 describe("[SDK] Workflow Management Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const wClient = sdk.GetWorkflowManagementClient();
     const userClient = sdk.GetUserManagementClient();
     const dummyWorkflowFileBuffer = readFileSync("test/data/Dummy_Workflows.yxzp", {flag:'r',encoding:null});

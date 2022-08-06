@@ -3,10 +3,10 @@ import * as debug from "debug";
 import { removeUndefined, throwError } from "./utils";
 import { AYX_NAME, AYX_VERSION } from "../version";
 const HttpsProxyAgent = require("https-proxy-agent");
-const log = debug("another-alteryx-cli");
+const log = debug("ayx-node");
 
 /**
- * TokenRotation interface marks all classes which rotate the authentication token according to another-alteryx-cli specifications.
+ * TokenRotation interface marks all classes which rotate the authentication token according to ayx-node specifications.
  *
  * @export
  * @interface TokenRotation
@@ -31,7 +31,7 @@ export interface TokenRotation {
     GetToken(): Promise<string>;
 
     /**
-     * returns the currently used another-alteryx-cli gateway
+     * returns the currently used ayx-node gateway
      *
      * @returns {string}
      *
@@ -40,7 +40,7 @@ export interface TokenRotation {
     GetGateway(): string;
 
     /**
-     * returns the currently used another-alteryx-cli tenant
+     * returns the currently used ayx-node tenant
      *
      * @returns {string}
      *

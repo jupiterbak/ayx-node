@@ -45,27 +45,6 @@ If you don't have a local server installed, you can [register here for a trial l
 
 The `npm run dev` command will start the typescript transpiler and mocha unit testing in a watch mode so that you can add new features to the library.
 
-### Developing new CLI Commands `npm run ts:watch`
-
-Start in one shell `npm run ts:watch` to run the typescript transpiler in the watch mode. You can run the command you are developing with:
-
-```bash
-node src/cli/ayx [list of parameters...]
-```
-
-A useful shortcut is to create an alias in your shell for this:
-
-```bash
-alias layx='node src/cli/ayx'
-```
-
-Running the commands is now very similar to the installed version but instead of `ayx command [options]`
-you will use `layx command [options]`, for example like this:
-
-```bash
-layx list-users
-```
-
 Don't forget to start another shell with `npm run ts:watch` which runs the typescript transpiler.
 
 ## package.json scripts

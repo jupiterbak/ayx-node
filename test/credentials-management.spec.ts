@@ -9,10 +9,7 @@ chai.should();
 
 describe("[SDK] Credential Management Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const credentialsClient = sdk.GetCredentialsManagementClient();
     const userClient = sdk.GetUserManagementClient();
     const credentialName = `${new Date().getTime()}.unit.test.alteryx.rocks`;

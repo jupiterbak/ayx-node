@@ -9,10 +9,7 @@ chai.should();
 
 describe("[SDK] Admin Tasks Management Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const aClient = sdk.GetAdminManagementClient();
     const wClient = sdk.GetWorkflowManagementClient();
     const dummyWorkflowFileBuffer = readFileSync("test/data/Dummy_Workflows.yxzp", {flag:'r',encoding:null});
@@ -45,7 +42,7 @@ describe("[SDK] Admin Tasks Management Client", () => {
 
     it("3. should find all schedules within the gallery", async () => {
         const tmps = await aClient.AdminGetPagedSchedulesV1();
-        tmps.length!.should.be.greaterThan(0);
+        tmps.length!.should.be.greaterThanOrEqual(0);
     });
 
     it("4. should find all collections within the gallery", async () => {

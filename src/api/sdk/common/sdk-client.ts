@@ -4,8 +4,14 @@ import { isTokenRotation, TokenRotation } from "../../alteryx-base";
 import {
     UserCredentials,
     ClientCredentials,
+    isSecretCredentials,
+    SecretCredentials,
+    TokenCredentials,
+    isTokenCredentials,
 } from "./credentials";
 import { isUserCredentials, isClientCredentials } from "./credentials";
+import { SecretCredentialAuth } from "../../secret-credential-auth";
+import { UserAuth } from "../../user-auth";
 
 export abstract class SdkClient {
     public async GetToken() {
@@ -89,27 +95,39 @@ export abstract class SdkClient {
      *
      * @memberOf SdkClient
      */
-    constructor(credentialsOrAuthorizer?: TokenRotation | UserCredentials | ClientCredentials) {
+    constructor(credentialsOrAuthorizer?: TokenRotation | UserCredentials | ClientCredentials | SecretCredentials  | TokenCredentials) {
         if (credentialsOrAuthorizer === undefined) {
             throw new Error("invalid autorizer.");
         } else if (isTokenRotation(credentialsOrAuthorizer)) {
             this._authenticator = credentialsOrAuthorizer as TokenRotation;
+        } else if (isTokenCredentials(credentialsOrAuthorizer)) {
+            const userCredentials = credentialsOrAuthorizer as TokenCredentials;
+
+            this._authenticator = new TokenManagerAuth(
+                userCredentials.gateway,
+                userCredentials.token,
+            );
         } else if (isUserCredentials(credentialsOrAuthorizer)) {
             const userCredentials = credentialsOrAuthorizer as UserCredentials;
 
-            this._authenticator = new TokenManagerAuth(
-                userCredentials.basicAuth,
+            this._authenticator = new UserAuth(
                 userCredentials.gateway,
-                userCredentials.appName,
-                userCredentials.appVersion
+                userCredentials.user,
+                userCredentials.password,
+            );
+        } else if (isSecretCredentials(credentialsOrAuthorizer)) {
+            const secretCredentials = credentialsOrAuthorizer as SecretCredentials;
+
+            this._authenticator = new SecretCredentialAuth(
+                secretCredentials.gateway,
+                secretCredentials.clientid,
+                secretCredentials.clientsecret
             );
         } else if (isClientCredentials(credentialsOrAuthorizer)) {
             const credentialsAuth = credentialsOrAuthorizer as ClientCredentials;
             this._authenticator = new CredentialAuth(
                 credentialsAuth.gateway,
-                credentialsAuth.basicAuth,
-                credentialsAuth.appName,
-                credentialsAuth.appVersion
+                credentialsAuth.basicAuth
             );
         } else {
             throw new Error("invalid constructor");

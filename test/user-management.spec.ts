@@ -8,10 +8,7 @@ chai.should();
 
 describe("[SDK] User Management Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const userClient = sdk.GetUserManagementClient();
     const wClient = sdk.GetWorkflowManagementClient();
     const usermail = `${new Date().getTime()}@unit.test.alteryx.rocks`;

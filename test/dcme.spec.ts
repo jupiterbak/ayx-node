@@ -9,10 +9,7 @@ chai.should();
 
 describe("[SDK] DCME Client", () => {
     const auth = loadAuth();
-    const sdk = new AlteryxSdk({
-        ...auth,
-        basicAuth: decrypt(auth, getPasskeyForUnitTest()),
-    });
+    const sdk = new AlteryxSdk(auth);
     const dcmeClient = sdk.GetDCMEConnectionClient();
     const userClient = sdk.GetUserManagementClient();
     const workflowClient = sdk.GetWorkflowManagementClient();
