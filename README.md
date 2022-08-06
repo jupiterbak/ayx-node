@@ -17,11 +17,7 @@
 
 </p>
 
-The repository implements a typescript SDK which can be used to interact with the Alteryx Server APIs. It is compatible with linux, windows and MacOS.
-
-[![SDK](https://img.shields.io/badge/SDK-full%20documentation-%23009999.svg)](https://jupiterbak.github.io/ayx-node/)
-
-It implements support for both frontend (browser e.g. angular, react...) and backend development in node.js.
+The repository implements a typescript SDK which can be used to interact with the Alteryx Server APIs. It is compatible with linux, windows and MacOS.It supports both frontend (browser e.g. angular, react...) and backend development in node.js.
 
 ## Quick Links
 
