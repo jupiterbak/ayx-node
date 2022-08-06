@@ -10,11 +10,15 @@ jobs:
   build:
     environment: CI
     runs-on: ubuntu-latest
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
     - name: Setup Node.js environment
-      uses: actions/setup-node@v2.1.5
-
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
     - name: Checkout Branch
       uses: actions/checkout@v2
 
@@ -23,7 +27,7 @@ jobs:
         npm install
     - name: build
       run: |
-        npm run ts:build              
+        npm run ts:build   
     - name: license check
       run: |
         npm run license > license-checker.txt
@@ -33,8 +37,32 @@ jobs:
         rm -rf dist/
         npm pack
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.3
+      uses: actions/upload-artifact@v3.1.0
       with:
           path: |
             *.tgz
             license-checker.txt
+  generate-doc:
+    # prevent subsequent commits from triggering the job multiple times
+    needs: build
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    environment: CI
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup NodeJS
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    - name: install dependencies
+      run: |
+        npm install
+    - name: Build Docs
+      run: npm run doc
+    - name: Open Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        title: 'docs: generate docs from latest main'
+        delete-branch: true
