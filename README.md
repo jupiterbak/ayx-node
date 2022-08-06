@@ -3,7 +3,7 @@
 <p align="center">
 <img src="images/AYX_NODE_LOGO.svg" alt="ayx-node" width="160px"/>
 </p>
-<h1 align="center">Another Alteryx Server TypeScript SDK</h1>
+<h1 align="center">Another Alteryx TypeScript SDK</h1>
 <p align="center">
 <a href="#getting-started">A NodeJS Library for Alteryx Server</a> - <a href="#typescript-sdk">TypeScript SDK</a> - <a href="#development-proxy"> Development Proxy</a>
 
@@ -13,13 +13,13 @@
 [![npm](https://img.shields.io/npm/v/@jupiterbak/ayx-node/latest.svg?style=flat)](https://www.npmjs.com/package/@jupiterbak/ayx-node) ![downloads](https://img.shields.io/npm/dw/@jupiterbak/ayx-node.svg?colorB=009999)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/jupiterbak/ayx-node.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jupiterbak/ayx-node/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/jupiterbak/ayx-node.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jupiterbak/ayx-node/context:javascript)
-[![GitHub release](https://img.shields.io/github/release/mindsphere/mindconnect-nodejs.svg)](https://github.com/mindsphere/mindconnect-nodejs/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/jupiterbak/ayx-node.svg)](https://github.com/jupiterbak/ayx-node/releases/latest)
 
 </p>
 
 The repository implements a typescript SDK which can be used to interact with the Alteryx Server APIs. It is compatible with linux, windows and MacOS.
 
-[![SDK](https://img.shields.io/badge/SDK-full%20documentation-%23009999.svg)](https://opensource.mindsphere.io/docs/mindconnect-nodejs/sdk/index.html)
+[![SDK](https://img.shields.io/badge/SDK-full%20documentation-%23009999.svg)](https://jupiterbak.github.io/ayx-node/)
 
 It implements support for both frontend (browser e.g. angular, react...) and backend development in node.js.
 
@@ -28,8 +28,8 @@ It implements support for both frontend (browser e.g. angular, react...) and bac
 | what          | where                                                                                                   |
 | ------------- | ------------------------------------------------------------------------------------------------------- |
 | documentation | coming soon                                  |
-| api-doc       | [mongodb.github.io/node-mongodb-native/](https://mongodb.github.io/node-mongodb-native/)                |
-| npm package   | [https://www.npmjs.com/package/@jupiterbak/ayx-node](https://www.npmjs.com/package/@jupiterbak/ayx-node)                                  |
+| generated api-doc       | [jupiterbak.github.io/ayx-node](https://jupiterbak.github.io/ayx-node/)                |
+| npm package   | [@jupiterbak/ayx-node](https://www.npmjs.com/package/@jupiterbak/ayx-node)                                  |
 | source        | [https://github.com/jupiterbak/ayx-node](https://github.com/jupiterbak/ayx-node)                |
 | changelog     | [CHANGELOG.md](https://github.com/jupiterbak/ayx-node/blob/HEAD/CHANGELOG.md)                           |
 | contributing  | [CONTRIBUTING.md](https://github.com/jupiterbak/ayx-node/blob/HEAD/CONTRIBUTING.md)                     |
@@ -49,7 +49,7 @@ yarn add @jupiterbak/ayx-node --save
 
 This will download the this library and add a dependency entry in your `package.json` file.
 
-If you are a Typescript user, you will need the Node.js type definitions to use the driver's definitions:
+If you are a Typescript user, you will need the Node.js type definitions:
 
 ```sh
 npm install -D @types/node
@@ -74,7 +74,7 @@ Enter the following command and answer the questions to create the initial struc
 npm init -y
 ```
 
-Next, install the driver as a dependency.
+Next, install the this SDK as a dependency.
 
 ```bash
 npm install ayx-node --save
@@ -82,9 +82,7 @@ npm install ayx-node --save
 
 ### Connect to your Alteryx server
 
-Create a new **app.js** file and add the following code to try read all the workflows listed in your workspace.
-
-Add code to connect to the server **myProject**:
+Create a new **app.js** file inside the folder **myProject** and add the following code to read all the workflows listed in your workspace:
 
 ```js
 const { AlteryxSdk } = require('@jupiterbak/ayx-node');
