@@ -1,0 +1,184 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@jupiterbak/ayx-node</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">@jupiterbak/ayx-node</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="contributing">Contributing</h1>
+<p>We welcome contributions in several forms, e.g.</p>
+<ul>
+<li>Sponsoring</li>
+<li>Documenting</li>
+<li>Testing</li>
+<li>Coding</li>
+<li>etc.</li>
+</ul>
+<p>Please check for the issues in the project and look for unassigned ones or create a new one. The good issues for newcomers are marked with <strong>good-first-issue</strong>.</p>
+<p>Working together in an open and welcoming environment is the foundation of our
+success, so please respect our <a href="CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
+<h2 id="guidelines">Guidelines</h2>
+<h3 id="workflow">Workflow</h3>
+<p>We use the <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow">Feature Branch Workflow</a>
+and review all changes we merge to master.</p>
+<h3 id="automated-builds-tests-security-and-code-quality-checks">Automated builds, tests, security and code quality checks</h3>
+<p>The code is required to pass the automated build, all unit-tests must be green and the configured security- (snyk) and code quality (lgtm) checks
+must be OK before the pull request can be merged.</p>
+<h3 id="commit-message">Commit Message</h3>
+<p>Commit messages shall follow the conventions defined by <a href="https://www.conventionalcommits.org/">conventional-changelog</a>.</p>
+<h3 id="code-style">Code Style</h3>
+<p>Please follow the typescript code style which is established in tslint.json. (Works out of the box in many editors, e.g. Visual Studio Code)</p>
+<h2 id="setting-up-the-local-development-environment">Setting up the local development environment</h2>
+<p>You will need to have administrative access to an Alteryx Server to setup the development environment.
+If you don&#39;t have a local server installed, you can <a href="https://www.alteryx.com/products/alteryx-server">register here for a trial license</a>. (that is free as in a beer :)</p>
+<h3 id="local-development-scripts">Local Development Scripts</h3>
+<h3 id="developing-new-features-and-unit-tests-npm-run-dev">Developing new features and unit tests <code>npm run dev</code></h3>
+<p>The <code>npm run dev</code> command will start the typescript transpiler and mocha unit testing in a watch mode so that you can add new features to the library.</p>
+<p>Don&#39;t forget to start another shell with <code>npm run ts:watch</code> which runs the typescript transpiler.</p>
+<h2 id="packagejson-scripts">package.json scripts</h2>
+<h3 id="npm-run-clean"><code>npm run clean</code></h3>
+<p>Deletes <code>dist/</code> directory.</p>
+<h3 id="npm-run-cleandist"><code>npm run clean:dist</code></h3>
+<p>Deletes <code>dist/</code> directory.</p>
+<h3 id="npm-run-prepare"><code>npm run prepare</code></h3>
+<p>Prepares the library for installation. It is called by <code>npm pack</code> and <code>npm install</code> commands.</p>
+<p>The script executes following steps:</p>
+<ul>
+<li>cleans the <code>dist/</code> directory (<code>npm run clean</code>)</li>
+<li>transpiles the typescript code to <code>dist/</code> directory (<code>npm run ts:build</code>)</li>
+</ul>
+<h3 id="npm-run-test"><code>npm run test</code></h3>
+<p>Transpiles the typescript and runs the full mocha unit test suite. (this only works on normal developer tenants)</p>
+<h3 id="npm-run-sanity"><code>npm run sanity</code></h3>
+<p>Transpiles the typescript and runs the mocha unit tests marked with @sanity (this only works on normal developer tenants)</p>
+<h3 id="npm-run-test-dev"><code>npm run test-dev</code></h3>
+<p>Transpiles the typescript and runs the mocha unit test suite with NODE_TLS_REJECT_UNAUTHORIZED=0 so that you can inspect the HTTP traffic e.g. by using Telerik Fiddler as a proxy server.</p>
+<h3 id="npm-run-test-jenkins"><code>npm run test-jenkins</code></h3>
+<p>Called by jenkins to create test resports in CI/CD pipeline.</p>
+<h3 id="npm-run-tsbuild"><code>npm run ts:build</code></h3>
+<p>Run the typescript transpiler.</p>
+<h3 id="npm-run-tsbuilddist"><code>npm run ts:build:dist</code></h3>
+<p>Run the typescript transpiler and save results in <code>dist/</code> folder. (used by <code>prepare</code> script)</p>
+<h3 id="npm-run-tswatch"><code>npm run ts:watch</code></h3>
+<p>Run typescript transpiler in watch mode (used for development)</p>
+<h3 id="npm-run-lint"><code>npm run lint</code></h3>
+<p>Start typescript linter</p>
+<h3 id="npm-run-dev"><code>npm run dev</code></h3>
+<p>Local development for new features. Runs concurrently typescript transpiler in watch mode (<code>npm run ts:watch</code>) and mocha in watch mode (<code>npm run test:watch</code>)</p>
+<h3 id="npm-run-doc"><code>npm run doc</code></h3>
+<p>Generates the documentation.</p>
+<h3 id="npm-run-createkey"><code>npm run createkey</code></h3>
+<p>Creates a private RSA_3072 key with help of openssl library (which must be available in your PATH)</p>
+<h3 id="npm-run-license"><code>npm run license</code></h3>
+<p>Checks if all depenedent libraries are in a set of allowed libraries. Used by jenkins CI/CD pipeline.</p>
+<h3 id="npm-run-licensesummary"><code>npm run license:summary</code></h3>
+<p>Prints out a license summary for the whole dependency tree.</p>
+<h3 id="npm-run-pkg"><code>npm run pkg</code></h3>
+<p>Creates the binary files with the CLI for Windows, Linux and MacOS.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'contributing.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

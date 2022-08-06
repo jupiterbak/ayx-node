@@ -1,0 +1,2674 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@jupiterbak/ayx-node</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@jupiterbak/ayx-node</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li >AdminManagementClientV1</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/api/sdk/admin/adminV1.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The Admin Management API provides a means to automate administrative tasks (API V1).</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../classes/SdkClient.html" target="_self" >SdkClient</a></code>
+            </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_baseUrlV1" >_baseUrlV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_authenticator" >_authenticator</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetAllAppsV1" >AdminGetAllAppsV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetAppInfoV1" >AdminGetAppInfoV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetAppOutputInfoV1" >AdminGetAppOutputInfoV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetAppsV1" >AdminGetAppsV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetDataConnectionsV1" >AdminGetDataConnectionsV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetInsightsV1" >AdminGetInsightsV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetMigratableAppsV1" >AdminGetMigratableAppsV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetPagedAuditLogV1" >AdminGetPagedAuditLogV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetPagedCollectionsV1" >AdminGetPagedCollectionsV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetPagedSchedulesV1" >AdminGetPagedSchedulesV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetPagedSubscriptionsV1" >AdminGetPagedSubscriptionsV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetPagedUsersV1" >AdminGetPagedUsersV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminGetSystemDataConnectionsV1" >AdminGetSystemDataConnectionsV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminPublishYxzpV1" >AdminPublishYxzpV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#AdminUpdateAppMigrationV1" >AdminUpdateAppMigrationV1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#GetGateway" >GetGateway</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#GetTenant" >GetTenant</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#GetToken" >GetToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#HttpAction" >HttpAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#RenewToken" >RenewToken</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_baseUrlV1"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_baseUrlV1</b></span>
+                        <a href="#_baseUrlV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;/admin/v1&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/api/sdk/admin/adminV1.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_authenticator"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>_authenticator</b></span>
+                        <a href="#_authenticator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TokenRotation.html" target="_self" >TokenRotation</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/SdkClient.html" target="_self" >SdkClient</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/SdkClient.html#source" target="_self" >SdkClient:33</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetAllAppsV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetAllAppsV1</b></span>
+                        <a href="#AdminGetAllAppsV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetAllAppsV1(startDate?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, endDate?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, page?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageSize?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>startDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The starting date to filter on, inclusive.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>endDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The ending date to filter on, inclusive.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The page number to start. (Zero based)</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>pageSize</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Workflows per page. (Zero means return all)</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;SDKModelsV1.WorkflowAllAdminApiView&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetAppInfoV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetAppInfoV1</b></span>
+                        <a href="#AdminGetAppInfoV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetAppInfoV1(appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Response&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetAppOutputInfoV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetAppOutputInfoV1</b></span>
+                        <a href="#AdminGetAppOutputInfoV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetAppOutputInfoV1(appIds?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, includeMessages?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>appIds</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The ID of the apps for which you want to retrieve metadata in a comma seperated list. Returns all if not specified</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>includeMessages</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Whether or not to return messages. True by default</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;SDKModelsV1.JobApiView&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetAppsV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetAppsV1</b></span>
+                        <a href="#AdminGetAppsV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetAppsV1(search?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sortField?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, direction?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:114</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>search</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Only results containing the search text will be returned.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>sortField</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>author;copyright;datemadepublic;description;executionmode;name;owner;runcount;subscriptionid;uploaddate;</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>direction</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The direction of the sort used with search results.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>offset</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The index of the first record to return in the result set.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>limit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The number of records to return.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;SDKModelsV1.WorkflowAdminApiView&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetDataConnectionsV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetDataConnectionsV1</b></span>
+                        <a href="#AdminGetDataConnectionsV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetDataConnectionsV1(offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:151</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>offset</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>limit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/DataConnectionSearchView.html" target="_self" >Promise&lt;Array&lt;SDKModelsV1.DataConnectionSearchView&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetInsightsV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetInsightsV1</b></span>
+                        <a href="#AdminGetInsightsV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetInsightsV1(search?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>search</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Only results containing the search text will be returned.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>offset</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The index of the first record to return in the result set.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>limit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The number of records to return.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;SDKModelsV1.DeprecatedInsightMetaInfo&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetMigratableAppsV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetMigratableAppsV1</b></span>
+                        <a href="#AdminGetMigratableAppsV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetMigratableAppsV1(subscriptionIds: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="210"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:210</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>subscriptionIds</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/MigratableWorkflowView.html" target="_self" >Promise&lt;Array&lt;SDKModelsV1.MigratableWorkflowView&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetPagedAuditLogV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetPagedAuditLogV1</b></span>
+                        <a href="#AdminGetPagedAuditLogV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetPagedAuditLogV1(entity: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageSize: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="235"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:235</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can us this API endpoint</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The entity type</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The page number</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>pageSize</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The page size</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/AuditEvent.html" target="_self" >Promise&lt;Array&lt;SDKModelsV1.AuditEvent&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetPagedCollectionsV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetPagedCollectionsV1</b></span>
+                        <a href="#AdminGetPagedCollectionsV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetPagedCollectionsV1(page?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageSize?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="279"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:279</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can us this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pageSize</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;SDKModelsV1.WorkflowCollectionView&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetPagedSchedulesV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetPagedSchedulesV1</b></span>
+                        <a href="#AdminGetPagedSchedulesV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetPagedSchedulesV1(page?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageSize?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="307"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:307</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pageSize</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;SDKModelsV1.ScheduleView&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetPagedSubscriptionsV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetPagedSubscriptionsV1</b></span>
+                        <a href="#AdminGetPagedSubscriptionsV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetPagedSubscriptionsV1(page?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageSize?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="335"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:335</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pageSize</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;SDKModelsV1.DeprecatedAdminApiSubscriptionView&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetPagedUsersV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetPagedUsersV1</b></span>
+                        <a href="#AdminGetPagedUsersV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetPagedUsersV1(page?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageSize?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="363"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:363</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pageSize</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;SDKModelsV1.DeprecatedAdminApiUserView&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetSystemDataConnectionsV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminGetSystemDataConnectionsV1</b></span>
+                        <a href="#AdminGetSystemDataConnectionsV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetSystemDataConnectionsV1(offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="391"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:391</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>offset</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>limit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/DataConnectionSummaryView.html" target="_self" >Promise&lt;Array&lt;SDKModelsV1.DataConnectionSummaryView&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminPublishYxzpV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminPublishYxzpV1</b></span>
+                        <a href="#AdminPublishYxzpV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminPublishYxzpV1(file: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, owner: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, isPublic: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, canDownload: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, workerTag?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, comments?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sourceId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="426"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:426</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint. <br /></p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>file</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>owner</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>validate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>isPublic</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>canDownload</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>workerTag</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>comments</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sourceId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminUpdateAppMigrationV1"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>AdminUpdateAppMigrationV1</b></span>
+                        <a href="#AdminUpdateAppMigrationV1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminUpdateAppMigrationV1(appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, isReadyForMigration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="502"
+                            class="link-to-prism">src/api/sdk/admin/adminV1.ts:502</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Only Gallery Curators(Admins) can use this API endpoint.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>isReadyForMigration</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetGateway"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>GetGateway</b></span>
+                        <a href="#GetGateway"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetGateway()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/SdkClient.html" target="_self" >SdkClient</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/SdkClient.html#source" target="_self" >SdkClient:25</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetTenant"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>GetTenant</b></span>
+                        <a href="#GetTenant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetTenant()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/SdkClient.html" target="_self" >SdkClient</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/SdkClient.html#source" target="_self" >SdkClient:29</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetToken"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>GetToken</b></span>
+                        <a href="#GetToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/SdkClient.html" target="_self" >SdkClient</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/SdkClient.html#source" target="_self" >SdkClient:17</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="HttpAction"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>HttpAction</b></span>
+                        <a href="#HttpAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>HttpAction(undefined: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/SdkClient.html" target="_self" >SdkClient</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/SdkClient.html#source" target="_self" >SdkClient:35</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object | undefined&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RenewToken"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>RenewToken</b></span>
+                        <a href="#RenewToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>RenewToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/SdkClient.html" target="_self" >SdkClient</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/SdkClient.html#source" target="_self" >SdkClient:21</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { toQueryString } from &quot;../../utils&quot;;
+import { SdkClient } from &quot;../common/sdk-client&quot;;
+import { SDKModelsV1 } from &quot;../models/modelsV1&quot;;
+import { adminWorkflowDataTemplate} from &quot;./admin-data-template&quot;;
+
+/**
+ * The Admin Management API provides a means to automate administrative tasks (API V1).
+ * @export
+ * @extends {SdkClient}
+ */
+ export class AdminManagementClientV1 extends SdkClient {
+    private _baseUrlV1: string &#x3D; &quot;/admin/v1&quot;;
+
+   /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Return all workflows, optionally filtered by date
+     * @param {string} [startDate] The starting date to filter on, inclusive.
+     * @param {string} [endDate] The ending date to filter on, inclusive.
+     * @param {number} [page] The page number to start. (Zero based)
+     * @param {number} [pageSize] Workflows per page. (Zero means return all)
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;WorkflowAllAdminApiView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetAllAppsV1(startDate?: string, endDate?: string, page?: number, pageSize?: number): Promise&lt;Array&lt;SDKModelsV1.WorkflowAllAdminApiView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(startDate){
+            params[&#x27;startDate&#x27;] &#x3D; startDate;
+        }
+        if(endDate){
+            params[&#x27;endDate&#x27;] &#x3D; endDate;
+        }
+        if(page){
+            params[&#x27;page&#x27;] &#x3D; page;
+        }
+        if(pageSize){
+            params[&#x27;pageSize&#x27;] &#x3D; pageSize;
+        }
+        
+        const qs &#x3D; toQueryString(params);
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/workflows/all?${qs}&#x60;,
+            message: &quot;AdminGetAllAppsV1&quot;,
+        })) as Promise&lt;Array&lt;SDKModelsV1.WorkflowAllAdminApiView&gt;&gt;;
+    }
+
+    /**
+     * 
+     * @summary Returns the app that was requested
+     * @param {string} appId
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Response&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetAppInfoV1(appId: string): Promise&lt;Response&gt; {
+        // verify required parameter &#x27;appId&#x27; is not null or undefined
+        if (appId &#x3D;&#x3D;&#x3D; null || appId &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;appId&#x27;,&#x27;Required parameter appId was null or undefined when calling AdminGetAppInfoV1.&#x27;);
+        }
+
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/${appId}/package&#x60;,
+            message: &quot;AdminGetAppInfoV1&quot;,
+            rawResponse: true
+        })) as Response;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Returns the last run job and its current state for workflows
+     * @param {string} [appIds] The ID of the apps for which you want to retrieve metadata in a comma seperated list. Returns all if not specified
+     * @param {string} [includeMessages] Whether or not to return messages. True by default
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;JobApiView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetAppOutputInfoV1(appIds?: string, includeMessages?: string): Promise&lt;Array&lt;SDKModelsV1.JobApiView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(appIds){
+            params[&#x27;appIds&#x27;] &#x3D; appIds;
+        }
+        if(includeMessages){
+            params[&#x27;includeMessages&#x27;] &#x3D; includeMessages;
+        }
+        
+        const qs &#x3D; toQueryString(params);
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/workflows/jobs?${qs}&#x60;,
+            message: &quot;AdminGetAppOutputInfoV1&quot;,
+        })) as Array&lt;SDKModelsV1.JobApiView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint
+     * @summary Finds workflows in a Gallery
+     * @param {string} [search] Only results containing the search text will be returned.
+     * @param {string} [sortField] author;copyright;datemadepublic;description;executionmode;name;owner;runcount;subscriptionid;uploaddate;
+     * @param {string} [direction] The direction of the sort used with search results.
+     * @param {number} [offset] The index of the first record to return in the result set.
+     * @param {number} [limit] The number of records to return.
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.WorkflowAdminApiView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetAppsV1(search?: string, sortField?: string, direction?: string, offset?: number, limit?: number): Promise&lt;Array&lt;SDKModelsV1.WorkflowAdminApiView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(search){
+            params[&#x27;search&#x27;] &#x3D; search;
+        }
+        if(sortField){
+            params[&#x27;sortField&#x27;] &#x3D; sortField;
+        }
+        if(offset){
+            params[&#x27;offset&#x27;] &#x3D; offset;
+        }
+        if(direction){
+            params[&#x27;direction&#x27;] &#x3D; direction;
+        }
+        if(limit){
+            params[&#x27;limit&#x27;] &#x3D; limit;
+        }
+        
+        const qs &#x3D; toQueryString(params);
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/workflows?${qs}&#x60;,
+            message: &quot;AdminGetAppsV1&quot;,
+        })) as Array&lt;SDKModelsV1.WorkflowAdminApiView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Returns data connections created in a private Gallery
+     * @param {number} [offset] 
+     * @param {number} [limit]
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.DataConnectionSearchView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetDataConnectionsV1(offset?: number, limit?: number): Promise&lt;Array&lt;SDKModelsV1.DataConnectionSearchView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(offset){
+            params[&#x27;offset&#x27;] &#x3D; offset;
+        }
+        if(limit){
+            params[&#x27;limit&#x27;] &#x3D; limit;
+        }
+        
+        const qs &#x3D; toQueryString(params);
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/serverdataconnections?${qs}&#x60;,
+            message: &quot;AdminGetAppsV1&quot;,
+        })) as Array&lt;SDKModelsV1.DataConnectionSearchView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Finds insights in a Gallery
+     * @param {string} [search] Only results containing the search text will be returned.
+     * @param {number} [offset] The index of the first record to return in the result set.
+     * @param {number} [limit] The number of records to return.
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.DeprecatedInsightMetaInfo&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetInsightsV1(search?: string, offset?: number, limit?: number): Promise&lt;Array&lt;SDKModelsV1.DeprecatedInsightMetaInfo&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(search){
+            params[&#x27;search&#x27;] &#x3D; search;
+        }
+        if(offset){
+            params[&#x27;offset&#x27;] &#x3D; offset;
+        }
+        if(limit){
+            params[&#x27;limit&#x27;] &#x3D; limit;
+        }
+        
+        const qs &#x3D; toQueryString(params);
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/insights?${qs}&#x60;,
+            message: &quot;AdminGetAppsV1&quot;,
+        })) as Array&lt;SDKModelsV1.DeprecatedInsightMetaInfo&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Finds workflows in a Gallery that have been marked ready for migration
+     * @param {string} subscriptionIds 
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.MigratableWorkflowView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetMigratableAppsV1(subscriptionIds: string): Promise&lt;Array&lt;SDKModelsV1.MigratableWorkflowView&gt;&gt; {
+        // verify required parameter &#x27;subscriptionIds&#x27; is not null or undefined
+        if (subscriptionIds &#x3D;&#x3D;&#x3D; null || subscriptionIds &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;subscriptionIds&#x27;,&#x27;Required parameter subscriptionIds was null or undefined when calling AdminGetMigratableAppsV1.&#x27;);
+        }
+        
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/workflows/migratable&#x60;,
+            message: &quot;AdminGetAppsV1&quot;,
+        })) as Array&lt;SDKModelsV1.MigratableWorkflowView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can us this API endpoint
+     * @summary Retrieve audit log entries for a given entity type
+     * @param {string} entity The entity type
+     * @param {number} page The page number
+     * @param {number} pageSize The page size
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.AuditEvent&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetPagedAuditLogV1(entity: string, page: number, pageSize: number): Promise&lt;Array&lt;SDKModelsV1.AuditEvent&gt;&gt; {
+        // verify required parameter &#x27;entity&#x27; is not null or undefined
+        if (entity &#x3D;&#x3D;&#x3D; null || entity &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;entity&#x27;,&#x27;Required parameter entity was null or undefined when calling AdminGetPagedAuditLogV1.&#x27;);
+        }
+        // verify required parameter &#x27;page&#x27; is not null or undefined
+        if (page &#x3D;&#x3D;&#x3D; null || page &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;page&#x27;,&#x27;Required parameter page was null or undefined when calling AdminGetPagedAuditLogV1.&#x27;);
+        }
+        // verify required parameter &#x27;pageSize&#x27; is not null or undefined
+        if (pageSize &#x3D;&#x3D;&#x3D; null || pageSize &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;pageSize&#x27;,&#x27;Required parameter pageSize was null or undefined when calling AdminGetPagedAuditLogV1.&#x27;);
+        }
+
+        const params &#x3D; {} as any;
+        if(entity){
+            params[&#x27;entity&#x27;] &#x3D; entity;
+        }
+        if(page){
+            params[&#x27;page&#x27;] &#x3D; page;
+        }
+        if(pageSize){
+            params[&#x27;pageSize&#x27;] &#x3D; pageSize;
+        }
+        
+        const qs &#x3D; toQueryString(params);        
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/auditlog?${qs}&#x60;,
+            message: &quot;AdminGetAppsV1&quot;,
+        })) as Array&lt;SDKModelsV1.AuditEvent&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can us this API endpoint.
+     * @summary Finds collections in a Gallery
+     * @param {number} [page] 
+     * @param {number} [pageSize] 
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.Collection&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetPagedCollectionsV1(page?: number, pageSize?: number): Promise&lt;Array&lt;SDKModelsV1.WorkflowCollectionView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(page){
+            params[&#x27;page&#x27;] &#x3D; page;
+        }
+        if(pageSize){
+            params[&#x27;pageSize&#x27;] &#x3D; pageSize;
+        }
+        
+        const qs &#x3D; toQueryString(params);        
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/collections?${qs}&#x60;,
+            message: &quot;AdminGetAppsV1&quot;,
+        })) as Array&lt;SDKModelsV1.WorkflowCollectionView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Finds schedules in a Gallery
+     * @param {number} [page] 
+     * @param {number} [pageSize] 
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.ScheduleView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetPagedSchedulesV1(page?: number, pageSize?: number): Promise&lt;Array&lt;SDKModelsV1.ScheduleView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(page){
+            params[&#x27;page&#x27;] &#x3D; page;
+        }
+        if(pageSize){
+            params[&#x27;pageSize&#x27;] &#x3D; pageSize;
+        }
+        
+        const qs &#x3D; toQueryString(params);        
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/schedules?${qs}&#x60;,
+            message: &quot;AdminGetAppsV1&quot;,
+        })) as Array&lt;SDKModelsV1.ScheduleView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Finds subscriptions in a Gallery
+     * @param {number} [page] 
+     * @param {number} [pageSize] 
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.DeprecatedAdminApiSubscriptionView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetPagedSubscriptionsV1(page?: number, pageSize?: number): Promise&lt;Array&lt;SDKModelsV1.DeprecatedAdminApiSubscriptionView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(page){
+            params[&#x27;page&#x27;] &#x3D; page;
+        }
+        if(pageSize){
+            params[&#x27;pageSize&#x27;] &#x3D; pageSize;
+        }
+        
+        const qs &#x3D; toQueryString(params);        
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/subscriptions?${qs}&#x60;,
+            message: &quot;AdminGetPagedSubscriptionsV1&quot;,
+        })) as Array&lt;SDKModelsV1.DeprecatedAdminApiSubscriptionView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Finds subscriptions in a Gallery
+     * @param {number} [page] 
+     * @param {number} [pageSize] 
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.DeprecatedAdminApiUserView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetPagedUsersV1(page?: number, pageSize?: number): Promise&lt;Array&lt;SDKModelsV1.DeprecatedAdminApiUserView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(page){
+            params[&#x27;page&#x27;] &#x3D; page;
+        }
+        if(pageSize){
+            params[&#x27;pageSize&#x27;] &#x3D; pageSize;
+        }
+        
+        const qs &#x3D; toQueryString(params);        
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/users?${qs}&#x60;,
+            message: &quot;AdminGetPagedUsersV1&quot;,
+        })) as Array&lt;SDKModelsV1.DeprecatedAdminApiUserView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Returns system data connections created on the server where Alteryx Server is installed
+     * @param {number} [offset] 
+     * @param {number} [limit] 
+     * @throws {RequiredError}
+     * @returns {Promise&lt;Array&lt;SDKModelsV1.DataConnectionSummaryView&gt;&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminGetSystemDataConnectionsV1(offset?: number, limit?: number): Promise&lt;Array&lt;SDKModelsV1.DataConnectionSummaryView&gt;&gt; {
+        const params &#x3D; {} as any;
+        if(offset){
+            params[&#x27;offset&#x27;] &#x3D; offset;
+        }
+        if(limit){
+            params[&#x27;limit&#x27;] &#x3D; limit;
+        }
+        
+        const qs &#x3D; toQueryString(params);        
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/systemdataconnections?${qs}&#x60;,
+            message: &quot;AdminGetSystemDataConnectionsV1&quot;,
+        })) as Array&lt;SDKModelsV1.DataConnectionSummaryView&gt;;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint. &lt;br /&gt;
+     * @summary Publishes a YXZP to the system
+     * @param {any} file 
+     * @param {string} name 
+     * @param {string} owner 
+     * @param {boolean} validate 
+     * @param {boolean} isPublic 
+     * @param {boolean} canDownload 
+     * @param {string} [workerTag] 
+     * @param {string} [comments] 
+     * @param {string} [sourceId]
+     * @throws {RequiredError}
+     * @returns {Promise&lt;string&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminPublishYxzpV1(file: any, name: string, owner: string, validate: boolean, isPublic: boolean, canDownload: boolean, workerTag?: string, comments?: string, sourceId?: string): Promise&lt;string&gt; {
+        // verify required parameter &#x27;file&#x27; is not null or undefined
+        if (file &#x3D;&#x3D;&#x3D; null || file &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;file&#x27;,&#x27;Required parameter file was null or undefined when calling AdminPublishYxzpV1.&#x27;);
+        }
+        // verify required parameter &#x27;name&#x27; is not null or undefined
+        if (name &#x3D;&#x3D;&#x3D; null || name &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;name&#x27;,&#x27;Required parameter name was null or undefined when calling AdminPublishYxzpV1.&#x27;);
+        }
+        // verify required parameter &#x27;owner&#x27; is not null or undefined
+        if (owner &#x3D;&#x3D;&#x3D; null || owner &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;owner&#x27;,&#x27;Required parameter owner was null or undefined when calling AdminPublishYxzpV1.&#x27;);
+        }
+        // verify required parameter &#x27;validate&#x27; is not null or undefined
+        if (validate &#x3D;&#x3D;&#x3D; null || validate &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;validate&#x27;,&#x27;Required parameter validate was null or undefined when calling AdminPublishYxzpV1.&#x27;);
+        }
+        // verify required parameter &#x27;isPublic&#x27; is not null or undefined
+        if (isPublic &#x3D;&#x3D;&#x3D; null || isPublic &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;isPublic&#x27;,&#x27;Required parameter isPublic was null or undefined when calling AdminPublishYxzpV1.&#x27;);
+        }
+        // verify required parameter &#x27;canDownload&#x27; is not null or undefined
+        if (canDownload &#x3D;&#x3D;&#x3D; null || canDownload &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;canDownload&#x27;,&#x27;Required parameter canDownload was null or undefined when calling AdminPublishYxzpV1.&#x27;);
+        }
+        
+        const params &#x3D; {} as any;
+        if(file){
+            params[&#x27;file&#x27;] &#x3D; file;
+        }
+        if(name){
+            params[&#x27;name&#x27;] &#x3D; name;
+        }
+        if(owner){
+            params[&#x27;owner&#x27;] &#x3D; owner;
+        }
+        if(validate){
+            params[&#x27;validate&#x27;] &#x3D; validate;
+        }
+        if(isPublic){
+            params[&#x27;isPublic&#x27;] &#x3D; isPublic;
+        }
+        if(canDownload){
+            params[&#x27;canDownload&#x27;] &#x3D; canDownload;
+        }
+        if(workerTag){
+            params[&#x27;workerTag&#x27;] &#x3D; workerTag;
+        }
+        if(comments){
+            params[&#x27;comments&#x27;] &#x3D; comments;
+        }
+        if(sourceId){
+            params[&#x27;sourceId&#x27;] &#x3D; sourceId;
+        }        
+        
+        return (await this.HttpAction({
+            verb: &quot;POST&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/workflows&#x60;,
+            message: &quot;AdminPublishYxzpV1&quot;,
+            body: adminWorkflowDataTemplate(params),
+            multiPartFormData: true,
+            //additionalHeaders: { enctype: &quot;multipart/form-data&quot; },
+        })) as string;
+    }
+
+    /**
+     * Only Gallery Curators(Admins) can use this API endpoint.
+     * @summary Updates an App&#x27;s ready for migration flag
+     * @param {string} appId 
+     * @param {boolean} isReadyForMigration 
+     * @throws {RequiredError}
+     * @returns {Promise&lt;string&gt;}
+     * @memberOf AdminManagementClientV1
+     */
+     public async AdminUpdateAppMigrationV1(appId: string, isReadyForMigration: boolean): Promise&lt;string&gt; {
+        // verify required parameter &#x27;appId&#x27; is not null or undefined
+        if (appId &#x3D;&#x3D;&#x3D; null || appId &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;appId&#x27;,&#x27;Required parameter appId was null or undefined when calling AdminUpdateAppMigrationV1.&#x27;);
+        }
+        // verify required parameter &#x27;isReadyForMigration&#x27; is not null or undefined
+        if (isReadyForMigration &#x3D;&#x3D;&#x3D; null || isReadyForMigration &#x3D;&#x3D;&#x3D; undefined) {
+            throw new SDKModelsV1.RequiredError(&#x27;isReadyForMigration&#x27;,&#x27;Required parameter isReadyForMigration was null or undefined when calling AdminUpdateAppMigrationV1.&#x27;);
+        }             
+        
+        return (await this.HttpAction({
+            verb: &quot;GET&quot;,
+            gateway: this.GetGateway(),
+            authorization: await this.GetToken(),
+            baseUrl: &#x60;${this._baseUrlV1}/workflows/migratable/${appId}&#x60;,
+            message: &quot;AdminUpdateAppMigrationV1&quot;,
+            body: isReadyForMigration,
+            multiPartFormData: true,
+            //additionalHeaders: { enctype: &quot;multipart/form-data&quot; },
+        })) as string;
+    }
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminManagementClientV1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

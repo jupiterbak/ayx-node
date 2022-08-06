@@ -1,0 +1,3507 @@
+swagger: '2.0'
+info:
+  version: '3'
+  title: Alteryx Server API V3
+host: localhost
+basePath: /webapi/
+schemes:
+  - http
+paths:
+  /v3/collections:
+    get:
+      tags:
+        - Collections
+      summary: Retrieve all accessible collection records
+      operationId: Collections_GetCollections
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: view
+          in: query
+          description: ''
+          required: false
+          type: string
+          enum:
+            - Default
+            - Full
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReducedCollectionView'
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+    post:
+      tags:
+        - Collections
+      summary: Create a new Collection
+      description: The authenticated API user must have the "Create Collections" permission to use this endpoint, else 401 Unauthorized will be returned.
+      operationId: Collections_CreateCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/CreateCollectionContract'
+      responses:
+        '200':
+          description: The id of the newly created collection
+          schema:
+            type: string
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}:
+    get:
+      tags:
+        - Collections
+      summary: Retrieve a collection record
+      operationId: Collections_GetCollection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    put:
+      tags:
+        - Collections
+      summary: Update an existing collection to change the name or owner
+      operationId: Collections_UpdateCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: updateCollectionContract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateCollectionContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    delete:
+      tags:
+        - Collections
+      summary: Delete a collection
+      operationId: Collections_DeleteCollection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: forceDelete
+          in: query
+          description: ''
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/users/{userId}/permissions:
+    put:
+      tags:
+        - Collections
+      summary: Update a collection users permissions.
+      description: For Windows Authentication configured Server instances, provide the Active Directory Sid for the userId parameter.
+      operationId: Collections_UpdateCollectionUserPermissions
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: userId
+          in: path
+          description: "The User's identifier. \r\nFor Windows Authentication-configured Server instances, the Active Directory Sid should be provided instead."
+          required: true
+          type: string
+        - name: updatePermissionsContract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/UpdatePermissionsContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/userGroups/{userGroupId}/permissions:
+    put:
+      tags:
+        - Collections
+      summary: Update a collection userGroups permissions
+      operationId: Collections_UpdateCollectionUserGroupPermissions
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: userGroupId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: updatePermissionsContract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/UpdatePermissionsContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/users:
+    post:
+      tags:
+        - Collections
+      summary: Add a user to a Collection
+      operationId: Collections_AddUserToCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add user to.
+          required: true
+          type: string
+        - name: addUsersContract
+          in: body
+          description: User and permissions information.
+          required: true
+          schema:
+            $ref: '#/definitions/AddUserContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/insights:
+    post:
+      tags:
+        - Collections
+      summary: Add an insight to a Collection
+      operationId: Collections_AddInsightToCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/AddInsightContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/schedules:
+    post:
+      tags:
+        - Collections
+      summary: Add a schedule to a Collection
+      operationId: Collections_AddScheduleToCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/AddScheduleContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/workflows:
+    post:
+      tags:
+        - Collections
+      summary: Add a workflow to a Collection
+      operationId: Collections_AddWorkflowToCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/AddWorkflowContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/userGroups:
+    post:
+      tags:
+        - Collections
+      summary: Add a userGroup to a Collection
+      operationId: Collections_AddUserGroupToCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: addUserGroupsContract
+          in: body
+          description: User Group and permissions information.
+          required: true
+          schema:
+            $ref: '#/definitions/AddUserGroupContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/users/{userId}:
+    delete:
+      tags:
+        - Collections
+      summary: Remove a user from a Collection
+      operationId: Collections_RemoveUserFromCollection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: userId
+          in: path
+          description: User id to remove
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/workflows/{appId}:
+    delete:
+      tags:
+        - Collections
+      summary: Remove a workflow from a Collection
+      operationId: Collections_RemoveWorkflowFromCollection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: appId
+          in: path
+          description: Workflow id to remove
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/insights/{insightId}:
+    delete:
+      tags:
+        - Collections
+      summary: Remove an insight from a Collection
+      operationId: Collections_RemoveInsightFromCollection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: insightId
+          in: path
+          description: Insight id to remove
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/schedules/{scheduleId}:
+    delete:
+      tags:
+        - Collections
+      summary: Remove a schedule from a Collection
+      operationId: Collections_RemoveScheduleFromCollection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: scheduleId
+          in: path
+          description: Schedule id to remove
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/collections/{collectionId}/userGroups/{userGroupId}:
+    delete:
+      tags:
+        - Collections
+      summary: Remove a userGroup from a Collection
+      operationId: Collections_RemoveUserGroupFromCollection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: collectionId
+          in: path
+          description: Collection to add to
+          required: true
+          type: string
+        - name: userGroupId
+          in: path
+          description: UserGroup id to remove
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CollectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/credentials/{credentialId}:
+    get:
+      tags:
+        - Credentials
+      summary: Retrieve a credential record
+      operationId: Credentials_GetCredential
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: credentialId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CredentialsView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    delete:
+      tags:
+        - Credentials
+      summary: Delete a credential
+      operationId: Credentials_DeleteCredential
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: credentialId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: force
+          in: query
+          description: cleans up any shares
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CredentialsView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/credentials:
+    get:
+      tags:
+        - Credentials
+      summary: Retrieve all Credential records
+      operationId: Credentials_GetCredentials
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: view
+          in: query
+          description: ''
+          required: false
+          type: string
+          enum:
+            - Default
+            - Full
+        - name: userId
+          in: query
+          description: Filter results by userId
+          required: false
+          type: string
+        - name: userGroupId
+          in: query
+          description: Filter results by userGroupId
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReducedCredentialsView'
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+  /v3/credentials/{credentialId}/users:
+    post:
+      tags:
+        - Credentials
+      summary: Share a credential with a user
+      operationId: Credentials_ShareCredentialWithUser
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: credentialId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/AddCredentialsUserContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CredentialsView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/credentials/{credentialId}/userGroups:
+    post:
+      tags:
+        - Credentials
+      summary: Share a credential with a userGroup
+      operationId: Credentials_ShareCredentialWithUserGroup
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: credentialId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/AddCredentialsUserGroupContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CredentialsView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/credentials/{credentialId}/users/{userId}:
+    delete:
+      tags:
+        - Credentials
+      summary: Removes a user from a credential
+      operationId: Credentials_RemoveUserFromCredential
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: credentialId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: userId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CredentialsView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/credentials/{credentialId}/userGroups/{userGroupId}:
+    delete:
+      tags:
+        - Credentials
+      summary: Removes a userGroup from a credential
+      operationId: Credentials_RemoveUserGroupFromCredential
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: credentialId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: userGroupId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CredentialsView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/schedules/{id}:
+    get:
+      tags:
+        - Schedules
+      summary: Get information for a specific schedule
+      operationId: Schedules_GetSchedule
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ScheduleView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    put:
+      tags:
+        - Schedules
+      summary: Update an existing schedule
+      operationId: Schedules_UpdateSchedule
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateScheduleContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ScheduleView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    delete:
+      tags:
+        - Schedules
+      summary: Delete a schedule
+      operationId: Schedules_DeleteSchedule
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/schedules:
+    get:
+      tags:
+        - Schedules
+      summary: Get all schedules
+      description: When filtering using RunsAfter and RunsBefore, you are limited to 45 days apart from each other.
+      operationId: Schedules_GetSchedules
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: view
+          in: query
+          required: false
+          type: string
+          enum:
+            - Default
+            - Full
+        - name: ownerId
+          in: query
+          required: false
+          type: string
+        - name: workflowId
+          in: query
+          required: false
+          type: string
+        - name: runsAfter
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: runsBefore
+          in: query
+          required: false
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReducedScheduleView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+    post:
+      tags:
+        - Schedules
+      summary: Create a new schedule
+      description: All Date Time fields need to be submitted as UTC-0.
+      operationId: Schedules_CreateSchedule
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: contract
+          in: body
+          description: See Data Type Model for iteration type contract structures.
+          required: true
+          schema:
+            $ref: '#/definitions/CreateScheduleContract'
+      responses:
+        '201':
+          description: Identifier for the new Schedule
+          schema:
+            type: string
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+  /v3/serverDataConnections:
+    get:
+      tags:
+        - ServerConnections
+      summary: Retrieve all server data connection records
+      operationId: ServerConnections_GetServerDataConnections
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: view
+          in: query
+          description: ''
+          required: false
+          type: string
+          enum:
+            - Default
+            - Full
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReducedServerConnectionView'
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+  /v3/serverDataConnections/{dataConnectionId}:
+    get:
+      tags:
+        - ServerConnections
+      summary: Retrieve a server data connection record
+      operationId: ServerConnections_GetServerDataConnection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: dataConnectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerConnectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    put:
+      tags:
+        - ServerConnections
+      summary: Update an existing server data connection to change the connection name
+      operationId: ServerConnections_UpdateServerDataConnectionName
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: dataConnectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: updateServerConnectionContract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateServerConnectionContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerConnectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    delete:
+      tags:
+        - ServerConnections
+      summary: Delete a server data connection
+      operationId: ServerConnections_DeleteServerDataConnection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: dataConnectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/serverDataConnections/{dataConnectionId}/users:
+    post:
+      tags:
+        - ServerConnections
+      summary: Add a user to an existing server data connection
+      operationId: ServerConnections_AddUserToServerDataConnection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: dataConnectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/AddServerConnectionUserContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerConnectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/serverDataConnections/{dataConnectionId}/userGroups:
+    post:
+      tags:
+        - ServerConnections
+      summary: Add a userGroup to an existing server data connection
+      operationId: ServerConnections_AddUserGroupToServerDataConnection
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: dataConnectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/AddServerConnectionUserGroupContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerConnectionView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/serverDataConnections/{dataConnectionId}/users/{userId}:
+    delete:
+      tags:
+        - ServerConnections
+      summary: Remove a user from an existing server data connection
+      operationId: ServerConnections_RemoveUserFromServerDataConnection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: dataConnectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: userId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerConnectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/serverDataConnections/{dataConnectionId}/userGroups/{userGroupId}:
+    delete:
+      tags:
+        - ServerConnections
+      summary: Remove a userGroup from an existing server data connection
+      operationId: ServerConnections_RemoveUserGroupFromServerDataConnection
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: dataConnectionId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: userGroupId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServerConnectionView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/usergroups:
+    get:
+      tags:
+        - UserGroups
+      summary: Get all Custom User Groups
+      description: Only Custom User Groups will be retrieved. No Active Directory Groups will be returned.
+      operationId: UserGroups_GetUserGroups
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReducedUserGroupView'
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+    post:
+      tags:
+        - UserGroups
+      summary: Create a new Custom User Group
+      operationId: UserGroups_CreateUserGroup
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/CreateUserGroupContract'
+      responses:
+        '201':
+          description: Identifier for the new User Group
+          schema:
+            type: string
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/InvalidRequestResponseBody'
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+  /v3/usergroups/{id}:
+    get:
+      tags:
+        - UserGroups
+      summary: Retrieve a Custom User Group
+      description: Only works for Custom User Groups. Active Directory Groups cannot be retrieved from this endpoint.
+      operationId: UserGroups_GetUserGroup
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/UserGroupView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    put:
+      tags:
+        - UserGroups
+      summary: Update a User Group's name and role
+      operationId: UserGroups_UpdateUserGroup
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateUserGroupContract'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/InvalidRequestResponseBody'
+        '401':
+          description: Unauthorized
+        '404':
+          description: The response if the user group id in the url path is not found.
+      security:
+        - oauth2: []
+    delete:
+      tags:
+        - UserGroups
+      summary: Delete a Custom User Group from the system
+      description: Will return a 400 Bad Request if the user group is not empty and the forceDelete query param is false.
+      operationId: UserGroups_DeleteUserGroup
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: The identifier of the User Group
+          required: true
+          type: string
+        - name: forceDelete
+          in: query
+          description: Delete the user group even if the group is not empty
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/usergroups/{id}/users:
+    post:
+      tags:
+        - UserGroups
+      summary: Add one or more users to a user group
+      operationId: UserGroups_AddUsersToGroup
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: The user group id
+          required: true
+          type: string
+        - name: userIds
+          in: body
+          description: User identifiers to add to the group
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/UserGroupAddedUsersView'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/InvalidRequestResponseBody'
+        '401':
+          description: Unauthorized
+        '404':
+          description: The reponse if the user group id in the url path is not found.
+      security:
+        - oauth2: []
+  /v3/usergroups/{userGroupId}/users/{userId}:
+    delete:
+      tags:
+        - UserGroups
+      summary: Remove a User from a User Group
+      description: If the user is not a part of the group, then an OK response will be returned.
+      operationId: UserGroups_RemoveUserFromGroup
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userGroupId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: userId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/UserGroupView'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/InvalidRequestResponseBody'
+        '401':
+          description: Unauthorized
+        '404':
+          description: The response if the user group id in the url path is not found.
+      security:
+        - oauth2: []
+  /v3/users/{id}:
+    get:
+      tags:
+        - Users
+      summary: Retrieve a User record
+      operationId: Users_GetUser
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: The identifier for the user to be retrieved
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/UserView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    put:
+      tags:
+        - Users
+      summary: Update an existing User
+      description: The Id of the updateContract will be overwritten by the id value in the URL.
+      operationId: Users_UpdateUser
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: The Id of the user to be updated
+          required: true
+          type: string
+        - name: updateContract
+          in: body
+          description: The request body structure
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateUserContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/UserView'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/InvalidRequestResponseBody'
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+    delete:
+      tags:
+        - Users
+      summary: Delete a user from the system
+      description: "If the user has any assets (Workflows, schedules, collections, insights) or user groups, then the\r\nuser cannot be deleted."
+      operationId: Users_DeleteUser
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '409':
+          description: Conflict
+          schema:
+            type: string
+      security:
+        - oauth2: []
+  /v3/users/{id}/assets:
+    get:
+      tags:
+        - Users
+      summary: Retrieve a full list of assets that a user owns.
+      operationId: Users_GetUsersAssets
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: The Id of the user to get assets for
+          required: true
+          type: string
+        - name: assetType
+          in: query
+          description: The type of assets I want to return (defaulted to All)
+          required: false
+          type: string
+          enum:
+            - All
+            - Workflows
+            - Schedules
+            - Collections
+            - Insights
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/AssetsView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/users:
+    get:
+      tags:
+        - Users
+      summary: Search for User records
+      description: If the searchContract.Verbose is set to false, then a reduced view object will be returned.
+      operationId: Users_GetUsers
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: view
+          in: query
+          description: ''
+          required: false
+          type: string
+          enum:
+            - Default
+            - Full
+        - name: active
+          in: query
+          required: false
+          type: boolean
+        - name: email
+          in: query
+          required: false
+          type: string
+        - name: role
+          in: query
+          required: false
+          type: string
+          enum:
+            - NoAccess
+            - Viewer
+            - Member
+            - Artisan
+            - Curator
+            - Evaluated
+        - name: firstName
+          in: query
+          required: false
+          type: string
+        - name: lastName
+          in: query
+          required: false
+          type: string
+        - name: createdAfter
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: createdBefore
+          in: query
+          required: false
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserView'
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+    post:
+      tags:
+        - Users
+      summary: Creates a new User record
+      description: |-
+
+
+        This endpoint cannot be used for Windows Authentication configured Server instances.
+      operationId: Users_CreateUser
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userContract
+          in: body
+          description: The request body structure required to make a new user
+          required: true
+          schema:
+            $ref: '#/definitions/CreateUserContract'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/UserView'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/InvalidRequestResponseBody'
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+  /v3/users/{id}/deactivate:
+    post:
+      tags:
+        - Users
+      summary: Deactivate a user in the system
+      operationId: Users_DeactivateUser
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: An array of user group IDs that the deactivated user is removed from.
+          schema:
+            type: array
+            items:
+              type: string
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/users/{id}/passwordReset:
+    post:
+      tags:
+        - Users
+      summary: Sends a password reset email to the given user.
+      description: |-
+
+
+        This endpoint cannot be used for Windows Authentication configured Server instances.
+
+        This endpoint cannot be used for SAML Authentication configured Server instances.
+      operationId: Users_SendPasswordReset
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/workflows/{workflowId}:
+    get:
+      tags:
+        - Workflows
+      summary: Retrieve a workflow record
+      operationId: Workflows_GetWorkflow
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: workflowId
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowView'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    put:
+      tags:
+        - Workflows
+      summary: Update an existing workflow
+      description: To change the ownerId, the new owner must be in the same subscription as the current owner.
+      operationId: Workflows_UpdateWorkflow
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: workflowId
+          in: path
+          description: ''
+          required: true
+          type: string
+        - name: updateWorkflowContract
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateWorkflowContract'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+    delete:
+      tags:
+        - Workflows
+      summary: Delete a specific workflow
+      operationId: Workflows_DeleteWorkflow
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: workflowId
+          in: path
+          description: id of workflow to delete
+          required: true
+          type: string
+        - name: force
+          in: query
+          description: if workflow is scheduled forcing will delete all schedules before deleting
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+      security:
+        - oauth2: []
+  /v3/workflows:
+    get:
+      tags:
+        - Workflows
+      summary: Retrieve all workflow records
+      operationId: Workflows_GetWorkflows
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: view
+          in: query
+          description: ''
+          required: false
+          type: string
+          enum:
+            - Default
+            - Full
+        - name: name
+          in: query
+          description: Filter by Workflow name
+          required: false
+          type: string
+        - name: ownerId
+          in: query
+          description: Filter by OwnerId
+          required: false
+          type: string
+        - name: createdAfter
+          in: query
+          description: Filter on the published revision's created date, inclusive
+          required: false
+          type: string
+        - name: createdBefore
+          in: query
+          description: Filter on the published revision's created date, inclusive
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReducedWorkflowView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+    post:
+      tags:
+        - Workflows
+      summary: Upload a new workflow
+      operationId: Workflows_CreateWorkflow
+      consumes:
+        - application/form-data
+        - multipart/form-data
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: file
+          in: formData
+          required: true
+          type: file
+        - name: name
+          in: formData
+          required: true
+          type: string
+        - name: ownerId
+          in: formData
+          required: true
+          type: string
+        - name: workerTag
+          in: formData
+          required: false
+          type: string
+        - name: districtTags
+          in: formData
+          description: |-
+
+            Submit as JSON formatted array. IE: ["id1", "id2"]
+          required: false
+          type: string
+        - name: comments
+          in: formData
+          required: false
+          type: string
+        - name: isPublic
+          in: formData
+          required: true
+          type: boolean
+        - name: isReadyForMigration
+          in: formData
+          required: true
+          type: boolean
+        - name: sourceAppId
+          in: formData
+          required: false
+          type: string
+        - name: othersMayDownload
+          in: formData
+          required: true
+          type: boolean
+        - name: othersCanExecute
+          in: formData
+          required: true
+          type: boolean
+        - name: executionMode
+          in: formData
+          description: |-
+
+            Accepted values are "Safe", "SemiSafe", "Standard", 
+          required: true
+          type: string
+        - name: hasPrivateDataExemption
+          in: formData
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+  /v3/workflows/{workflowId}/versions:
+    post:
+      tags:
+        - Workflows
+      summary: Upload a new version to an existing workflow
+      operationId: Workflows_AddVersionToWorkflow
+      consumes:
+        - application/form-data
+        - multipart/form-data
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          type: string
+        - name: file
+          in: formData
+          required: false
+          type: file
+        - name: name
+          in: formData
+          required: true
+          type: string
+        - name: ownerId
+          in: formData
+          required: true
+          type: string
+        - name: othersMayDownload
+          in: formData
+          required: true
+          type: boolean
+        - name: othersCanExecute
+          in: formData
+          required: true
+          type: boolean
+        - name: executionMode
+          in: formData
+          description: |-
+
+            Accepted values are "Safe", "SemiSafe", "Standard", 
+          required: true
+          type: string
+        - name: hasPrivateDataExemption
+          in: formData
+          required: false
+          type: boolean
+        - name: comments
+          in: formData
+          required: true
+          type: string
+        - name: makePublished
+          in: formData
+          required: true
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkflowView'
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+      security:
+        - oauth2: []
+definitions:
+  CollectionView:
+    required:
+      - id
+      - name
+      - ownerId
+      - dateAdded
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      ownerId:
+        type: string
+      dateAdded:
+        format: date-time
+        type: string
+      workflowIds:
+        type: array
+        items:
+          type: string
+      insightIds:
+        type: array
+        items:
+          type: string
+      users:
+        type: array
+        items:
+          $ref: '#/definitions/CollectionUserView'
+      subscriptionIds:
+        type: array
+        items:
+          type: string
+      userGroupIds:
+        type: array
+        items:
+          type: string
+      scheduleIds:
+        type: array
+        items:
+          type: string
+  CollectionUserView:
+    type: object
+    properties:
+      userId:
+        type: string
+      activeDirectoryObject:
+        $ref: '#/definitions/ActiveDirectoryObject'
+  ActiveDirectoryObject:
+    type: object
+    properties:
+      sid:
+        type: string
+      category:
+        enum:
+          - Person
+          - Group
+        type: string
+      displayName:
+        type: string
+      name:
+        type: string
+      samAccountName:
+        type: string
+  ReducedCollectionView:
+    required:
+      - id
+      - name
+      - ownerId
+      - dateAdded
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      ownerId:
+        type: string
+      dateAdded:
+        format: date-time
+        type: string
+  CreateCollectionContract:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        description: The name of the new collection.
+        type: string
+  UpdateCollectionContract:
+    required:
+      - name
+      - ownerId
+    type: object
+    properties:
+      name:
+        maxLength: 255
+        minLength: 1
+        type: string
+      ownerId:
+        maxLength: 255
+        minLength: 1
+        type: string
+  UpdatePermissionsContract:
+    required:
+      - collectionsPermissions
+    type: object
+    properties:
+      expirationDate:
+        format: date-time
+        type: string
+      collectionsPermissions:
+        $ref: '#/definitions/CollectionsPermissionsViewContract'
+  CollectionsPermissionsViewContract:
+    type: object
+    properties:
+      isAdmin:
+        type: boolean
+      canAddAssets:
+        type: boolean
+      canRemoveAssets:
+        type: boolean
+      canUpdateAssets:
+        type: boolean
+      canAddUsers:
+        type: boolean
+      canRemoveUsers:
+        type: boolean
+  AddUserContract:
+    required:
+      - userId
+      - collectionsPermissions
+    type: object
+    properties:
+      userId:
+        type: string
+      expirationDate:
+        format: date-time
+        type: string
+      collectionsPermissions:
+        $ref: '#/definitions/CollectionsPermissionsViewContract'
+  AddInsightContract:
+    required:
+      - insightId
+    type: object
+    properties:
+      insightId:
+        type: string
+  AddScheduleContract:
+    required:
+      - scheduleId
+    type: object
+    properties:
+      scheduleId:
+        type: string
+  AddWorkflowContract:
+    required:
+      - workflowId
+    type: object
+    properties:
+      workflowId:
+        type: string
+  AddUserGroupContract:
+    required:
+      - userGroupId
+      - collectionsPermissions
+    type: object
+    properties:
+      userGroupId:
+        type: string
+      expirationDate:
+        format: date-time
+        type: string
+      collectionsPermissions:
+        $ref: '#/definitions/CollectionsPermissionsViewContract'
+  CredentialsView:
+    required:
+      - id
+      - userName
+    type: object
+    properties:
+      id:
+        type: string
+      userName:
+        type: string
+      userIds:
+        type: array
+        items:
+          type: string
+      userGroupIds:
+        type: array
+        items:
+          type: string
+  ReducedCredentialsView:
+    required:
+      - id
+      - userName
+    type: object
+    properties:
+      id:
+        type: string
+      userName:
+        type: string
+  AddCredentialsUserContract:
+    required:
+      - userId
+    type: object
+    properties:
+      userId:
+        type: string
+  AddCredentialsUserGroupContract:
+    required:
+      - userGroupId
+    type: object
+    properties:
+      userGroupId:
+        type: string
+  ScheduleView:
+    required:
+      - id
+      - name
+      - workflowId
+      - versionId
+      - ownerId
+      - runDateTime
+      - enabled
+      - priority
+      - creationTime
+      - iteration
+      - canEdit
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      workflowId:
+        type: string
+      versionId:
+        type: string
+      ownerId:
+        type: string
+      runDateTime:
+        description: "RunDateTime will either be the next time the schedule will be run, OR\r\nthe next run time in the specified window of a search range.\r\nUTC-0."
+        type: string
+      comment:
+        type: string
+      enabled:
+        type: boolean
+      priority:
+        enum:
+          - Default
+          - Low
+          - Medium
+          - High
+          - Critical
+        type: string
+      workerTag:
+        type: string
+      status:
+        type: string
+      credentialId:
+        type: string
+      creationTime:
+        type: string
+      lastRunTime:
+        type: string
+      state:
+        type: string
+      runCount:
+        format: int32
+        type: integer
+      iteration:
+        $ref: '#/definitions/IterationBase'
+        description: All times are in UTC-0
+      frequency:
+        type: string
+      lastError:
+        type: string
+      cpuName:
+        type: string
+      lastModifiedId:
+        type: string
+      lastModifiedDate:
+        type: string
+      canEdit:
+        type: boolean
+  IterationBase:
+    type: object
+    properties:
+      startTime:
+        type: string
+      endTime:
+        type: string
+  UpdateScheduleContract:
+    required:
+      - workflowId
+      - ownerId
+      - iteration
+      - name
+      - comment
+      - priority
+      - workerTag
+      - enabled
+      - credentialId
+    type: object
+    properties:
+      workflowId:
+        type: string
+      ownerId:
+        type: string
+      iteration:
+        $ref: '#/definitions/IterationContract'
+        description: Contains properties for each IterationType value
+      name:
+        maxLength: 256
+        minLength: 0
+        type: string
+      comment:
+        maxLength: 1024
+        minLength: 0
+        type: string
+      priority:
+        enum:
+          - Default
+          - Low
+          - Medium
+          - High
+          - Critical
+        type: string
+      workerTag:
+        type: string
+      enabled:
+        type: boolean
+      credentialId:
+        type: string
+  IterationContract:
+    required:
+      - iterationType
+      - startTime
+    type: object
+    properties:
+      iterationType:
+        enum:
+          - Once
+          - Hourly
+          - Weekly
+          - Monthly
+          - Custom
+          - Daily
+        type: string
+      startTime:
+        format: date-time
+        description: Start Date Time as UTC-0
+        type: string
+      endTime:
+        format: date-time
+        description: "End Date Time as UTC-0\r\nOptional, if excluded the iteration will be indefinite. \r\nIgnored for \"Single\" IterationType"
+        type: string
+      hourlyContract:
+        $ref: '#/definitions/IterationHourlyContract'
+        description: Required when the IterationType is Hourly
+      dailyContract:
+        $ref: '#/definitions/IterationDailyContract'
+        description: Required when the IterationType is Daily
+      weeklyContract:
+        $ref: '#/definitions/IterationWeeklyContract'
+        description: Required when the IterationType is Weekly
+      monthlyContract:
+        $ref: '#/definitions/IterationMonthlyContract'
+        description: Required when the IterationType is Monthly
+      customContract:
+        $ref: '#/definitions/IterationCustomContract'
+        description: Required when the IterationType is Custom
+  IterationHourlyContract:
+    required:
+      - hours
+      - minutes
+    type: object
+    properties:
+      hours:
+        format: int32
+        type: integer
+      minutes:
+        format: int32
+        type: integer
+  IterationDailyContract:
+    type: object
+    properties:
+      runOnlyWorkWeek:
+        type: boolean
+  IterationWeeklyContract:
+    required:
+      - daysOfWeek
+    type: object
+    properties:
+      daysOfWeek:
+        type: array
+        items:
+          enum:
+            - Sunday
+            - Monday
+            - Tuesday
+            - Wednesday
+            - Thursday
+            - Friday
+            - Saturday
+          type: string
+  IterationMonthlyContract:
+    required:
+      - simpleDayOfMonth
+    type: object
+    properties:
+      simpleDayOfMonth:
+        type: boolean
+      dayOfMonth:
+        format: int32
+        description: "15 would be the 15th of each month.\r\nRequired when SimpleDayOfMonth is true."
+        type: integer
+      occurrence:
+        format: int32
+        description: "3 would imply the 3rd X of every month.\r\nRequired when SimpleDayOfMonth is false."
+        type: integer
+      dayOfWeek:
+        description: "0 = \"Sunday\"\r\n0 implies the Xth Sunday of every month.\r\nRequired when SimpleDayOfMonth is false."
+        enum:
+          - Sunday
+          - Monday
+          - Tuesday
+          - Wednesday
+          - Thursday
+          - Friday
+          - Saturday
+        type: string
+  IterationCustomContract:
+    required:
+      - daysOfMonth
+      - months
+    type: object
+    properties:
+      daysOfMonth:
+        description: 1, 4, 14 is the 1st, 4th, and 14th of each month.
+        type: array
+        items:
+          format: int32
+          type: integer
+      months:
+        description: Calendar months where January = 1 and December = 12
+        type: array
+        items:
+          format: int32
+          type: integer
+  SearchScheduleContract:
+    type: object
+    properties:
+      ownerId:
+        type: string
+      workflowId:
+        type: string
+      runsAfter:
+        format: date-time
+        type: string
+      runsBefore:
+        format: date-time
+        type: string
+  ReducedScheduleView:
+    required:
+      - id
+      - name
+      - workflowId
+      - ownerId
+      - runDateTime
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      workflowId:
+        description: The application id for the workflow in the gallery DB
+        type: string
+      ownerId:
+        type: string
+      runDateTime:
+        description: "RunDateTime will either be the next time the schedule will be run, OR\r\nthe next run time in the specified window of a search range"
+        type: string
+  CreateScheduleContract:
+    required:
+      - workflowId
+      - iteration
+    type: object
+    properties:
+      workflowId:
+        type: string
+      iteration:
+        $ref: '#/definitions/IterationContract'
+        description: Contains a property corresponding to each IterationType value.
+      name:
+        maxLength: 256
+        minLength: 0
+        type: string
+      comment:
+        maxLength: 1024
+        minLength: 0
+        type: string
+      priority:
+        description: "Optional Priority of schedule execution. \r\nAuthenticated user must be enabled to set priority or be a Curator, else this property is ignored."
+        enum:
+          - Default
+          - Low
+          - Medium
+          - High
+          - Critical
+        type: string
+      workerTag:
+        description: "Optional WorkerTag for schedule execution.\r\nAuthenticated user must be enabled to set worker tags, else this property is ignored."
+        type: string
+      credentialId:
+        description: Optional Credential to be used for schedule execution.
+        type: string
+  ServerConnectionView:
+    required:
+      - id
+      - name
+      - connectionString
+      - connectionType
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      connectionString:
+        type: string
+      connectionType:
+        type: string
+      userIds:
+        type: array
+        items:
+          type: string
+      userGroupIds:
+        type: array
+        items:
+          type: string
+  ReducedServerConnectionView:
+    required:
+      - id
+      - name
+      - connectionString
+      - connectionType
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      connectionString:
+        type: string
+      connectionType:
+        type: string
+  UpdateServerConnectionContract:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        maxLength: 255
+        minLength: 1
+        type: string
+  AddServerConnectionUserContract:
+    required:
+      - userId
+    type: object
+    properties:
+      userId:
+        type: string
+  AddServerConnectionUserGroupContract:
+    required:
+      - userGroupId
+    type: object
+    properties:
+      userGroupId:
+        type: string
+  ReducedUserGroupView:
+    required:
+      - id
+      - name
+      - role
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      role:
+        enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+        type: string
+  CreateUserGroupContract:
+    required:
+      - name
+      - role
+    type: object
+    properties:
+      name:
+        maxLength: 255
+        minLength: 1
+        type: string
+      role:
+        enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+        type: string
+  InvalidRequestResponseBody:
+    description: SwaggerResponse-friendly object representing the response body structure of a BadRequest's ModelState
+    type: object
+    properties:
+      message:
+        type: string
+      modelState:
+        type: object
+        additionalProperties:
+          type: array
+          items:
+            type: string
+  UserGroupView:
+    required:
+      - id
+      - name
+      - dateAdded
+      - role
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      dateAdded:
+        format: date-time
+        type: string
+      role:
+        enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+        type: string
+      credentialIds:
+        type: array
+        items:
+          type: string
+      connectionIds:
+        type: array
+        items:
+          type: string
+      members:
+        type: array
+        items:
+          $ref: '#/definitions/Member'
+  Member:
+    type: object
+    properties:
+      activeDirectoryObject:
+        $ref: '#/definitions/ADObject'
+      userId:
+        type: string
+      dateAddedToGroup:
+        format: date-time
+        type: string
+      addedByUserId:
+        type: string
+  ADObject:
+    type: object
+    properties:
+      sid:
+        type: string
+      category:
+        enum:
+          - Person
+          - Group
+        type: string
+      displayName:
+        type: string
+      domainName:
+        type: string
+      sidAccountName:
+        type: string
+  UpdateUserGroupContract:
+    required:
+      - name
+      - role
+    type: object
+    properties:
+      name:
+        maxLength: 255
+        minLength: 1
+        type: string
+      role:
+        enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+        type: string
+  UserGroupAddedUsersView:
+    required:
+      - successfullyAddedUserCount
+      - totalUsersSubmittedCount
+    type: object
+    properties:
+      successfullyAddedUserCount:
+        format: int32
+        type: integer
+      totalUsersSubmittedCount:
+        format: int32
+        type: integer
+      failedUserReasons:
+        type: object
+        additionalProperties:
+          type: string
+  UserView:
+    required:
+      - id
+      - firstName
+      - lastName
+      - email
+      - role
+      - defaultWorkerTag
+      - canScheduleJobs
+      - canPrioritizeJobs
+      - canAssignJobs
+      - canCreateCollections
+      - isApiEnabled
+      - isAccountLocked
+      - isActive
+      - isValidated
+    type: object
+    properties:
+      id:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      role:
+        enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+        type: string
+      defaultWorkerTag:
+        type: string
+      canScheduleJobs:
+        type: boolean
+      canPrioritizeJobs:
+        type: boolean
+      canAssignJobs:
+        type: boolean
+      canCreateCollections:
+        type: boolean
+      isApiEnabled:
+        type: boolean
+      defaultCredentialId:
+        type: string
+      isAccountLocked:
+        type: boolean
+      isActive:
+        type: boolean
+      lastLoginDateTime:
+        format: date-time
+        type: string
+      isValidated:
+        type: boolean
+      sharedCredentialIds:
+        type: array
+        items:
+          type: string
+      dataConnectionIds:
+        type: array
+        items:
+          type: string
+      timeZone:
+        type: string
+      language:
+        type: string
+  UpdateUserContract:
+    required:
+      - firstName
+      - lastName
+      - email
+      - role
+      - defaultWorkerTag
+      - canScheduleJobs
+      - canPrioritizeJobs
+      - canAssignJobs
+      - canCreateCollections
+      - isApiEnabled
+      - defaultCredentialId
+      - isAccountLocked
+      - isActive
+      - isValidated
+      - timeZone
+      - language
+    type: object
+    properties:
+      id:
+        description: The id of the user to be updated. Optional as will be set via the controller path parameter.
+        type: string
+      firstName:
+        maxLength: 255
+        minLength: 1
+        type: string
+      lastName:
+        maxLength: 255
+        minLength: 1
+        type: string
+      email:
+        type: string
+      role:
+        enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+        type: string
+      defaultWorkerTag:
+        type: string
+      canScheduleJobs:
+        type: boolean
+      canPrioritizeJobs:
+        type: boolean
+      canAssignJobs:
+        type: boolean
+      canCreateCollections:
+        type: boolean
+      isApiEnabled:
+        type: boolean
+      defaultCredentialId:
+        type: string
+      isAccountLocked:
+        type: boolean
+      isActive:
+        type: boolean
+      isValidated:
+        type: boolean
+      timeZone:
+        type: string
+      language:
+        description: Supported Language values are "de-de", "en-us", "es-es", "fr-fr", "it-it", "ja-jp", "pt-br", "zh-cn"
+        type: string
+  AssetsView:
+    type: object
+    properties:
+      workflows:
+        type: array
+        items:
+          $ref: '#/definitions/AssetDataView'
+      schedules:
+        type: array
+        items:
+          $ref: '#/definitions/AssetDataView'
+      collections:
+        type: array
+        items:
+          $ref: '#/definitions/AssetDataView'
+      insights:
+        type: array
+        items:
+          $ref: '#/definitions/AssetDataView'
+  AssetDataView:
+    type: object
+    properties:
+      name:
+        type: string
+      id:
+        type: string
+  SearchUserContract:
+    type: object
+    properties:
+      active:
+        type: boolean
+      email:
+        type: string
+      role:
+        enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      createdAfter:
+        format: date-time
+        type: string
+      createdBefore:
+        format: date-time
+        type: string
+  ReducedUserView:
+    description: A subset of UserView properties to be returned for smaller payloads
+    required:
+      - id
+      - firstName
+      - lastName
+      - email
+      - isActive
+      - role
+      - dateCreated
+    type: object
+    properties:
+      id:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      isActive:
+        type: boolean
+      role:
+        enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+        type: string
+      dateCreated:
+        format: date-time
+        type: string
+  CreateUserContract:
+    required:
+      - firstName
+      - lastName
+      - email
+    type: object
+    properties:
+      firstName:
+        maxLength: 255
+        minLength: 1
+        type: string
+      lastName:
+        maxLength: 255
+        minLength: 1
+        type: string
+      email:
+        type: string
+      role:
+        description: "If no role is provided, the user will be set as Evaluated.\r\n\r\nAccepted values are \"NoAccess\", \"Viewer\", \"Member\", \"Artisan\", \"Curator\", \"Evaluated\""
+        type: string
+      defaultWorkerTag:
+        type: string
+      canScheduleJobs:
+        type: boolean
+      canPrioritizeJobs:
+        type: boolean
+      canAssignJobs:
+        type: boolean
+      canCreateCollections:
+        type: boolean
+      isApiEnabled:
+        type: boolean
+      defaultCredentialId:
+        type: string
+      isActive:
+        type: boolean
+      timeZone:
+        type: string
+  WorkflowView:
+    required:
+      - id
+      - dateCreated
+      - runCount
+      - versions
+      - name
+      - ownerId
+      - workerTag
+      - districtTags
+      - comments
+      - isPublic
+      - isReadyForMigration
+      - publishedVersionId
+      - othersMayDownload
+      - othersCanViewHistory
+      - othersCanExecute
+    type: object
+    properties:
+      id:
+        type: string
+      dateCreated:
+        format: date-time
+        type: string
+      runCount:
+        format: int32
+        type: integer
+      versions:
+        type: array
+        items:
+          $ref: '#/definitions/WorkflowVersionView'
+      name:
+        type: string
+      ownerId:
+        type: string
+      workerTag:
+        type: string
+      districtTags:
+        type: array
+        items:
+          type: string
+      comments:
+        type: string
+      isPublic:
+        type: boolean
+      isReadyForMigration:
+        type: boolean
+      publishedVersionId:
+        type: string
+      othersMayDownload:
+        type: boolean
+      othersCanViewHistory:
+        type: boolean
+      othersCanExecute:
+        type: boolean
+      executionMode:
+        enum:
+          - Safe
+          - SemiSafe
+          - Standard
+        type: string
+      hasPrivateDataExemption:
+        type: boolean
+  WorkflowVersionView:
+    required:
+      - versionId
+      - versionNumber
+      - dateCreated
+      - uploadSource
+      - uploadDate
+      - packageWorkflowType
+      - published
+      - comments
+      - runDisabled
+      - executionMode
+      - workflowCredentialType
+      - othersMayDownload
+      - othersCanViewHistory
+      - details
+    type: object
+    properties:
+      versionId:
+        type: string
+      versionNumber:
+        format: int32
+        type: integer
+      dateCreated:
+        format: date-time
+        type: string
+      uploadSource:
+        enum:
+          - Designer
+          - Direct
+        type: string
+      uploadDate:
+        format: date-time
+        type: string
+      packageWorkflowType:
+        enum:
+          - App
+          - Module
+          - Macro
+        type: string
+      published:
+        type: boolean
+      comments:
+        type: string
+      runDisabled:
+        type: boolean
+      executionMode:
+        enum:
+          - Safe
+          - SemiSafe
+          - Standard
+        type: string
+      workflowCredentialType:
+        enum:
+          - Default
+          - Required
+          - Specific
+        type: string
+      hasPrivateDataExemption:
+        type: boolean
+      othersMayDownload:
+        type: boolean
+      othersCanViewHistory:
+        type: boolean
+      details:
+        $ref: '#/definitions/WorkflowDetails'
+  WorkflowDetails:
+    required:
+      - isAmp
+      - fileName
+      - author
+      - copyright
+      - description
+      - name
+      - noOutputFilesMessage
+      - outputMessage
+      - url
+      - urlText
+    type: object
+    properties:
+      isAmp:
+        type: boolean
+      fileName:
+        type: string
+      author:
+        type: string
+      copyright:
+        type: string
+      description:
+        type: string
+      name:
+        type: string
+      noOutputFilesMessage:
+        type: string
+      outputMessage:
+        type: string
+      url:
+        type: string
+      urlText:
+        type: string
+  UpdateWorkflowContract:
+    required:
+      - name
+      - versionId
+      - makePublished
+      - ownerId
+      - workerTag
+      - districtTags
+      - comments
+      - isPublic
+      - isReadyForMigration
+      - othersMayDownload
+      - othersCanExecute
+      - executionMode
+    type: object
+    properties:
+      name:
+        maxLength: 255
+        minLength: 1
+        type: string
+      versionId:
+        type: string
+      makePublished:
+        type: boolean
+      ownerId:
+        type: string
+      workerTag:
+        type: string
+      districtTags:
+        type: array
+        items:
+          type: string
+      comments:
+        type: string
+      isPublic:
+        type: boolean
+      isReadyForMigration:
+        type: boolean
+      othersMayDownload:
+        type: boolean
+      othersCanExecute:
+        type: boolean
+      executionMode:
+        enum:
+          - Safe
+          - SemiSafe
+          - Standard
+        type: string
+      hasPrivateDataExemption:
+        type: boolean
+  ReducedWorkflowView:
+    required:
+      - id
+      - name
+      - ownerId
+      - dateCreated
+      - publishedVersionNumber
+      - isAmp
+      - executionMode
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      ownerId:
+        type: string
+      dateCreated:
+        format: date-time
+        type: string
+      publishedVersionNumber:
+        format: int32
+        type: integer
+      isAmp:
+        type: boolean
+      executionMode:
+        enum:
+          - Safe
+          - SemiSafe
+          - Standard
+        type: string
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    description: OAuth2 Client Credentials Grant
+    flow: application
+    tokenUrl: http://localhost/webapi/oauth2/token
+    scopes: {}

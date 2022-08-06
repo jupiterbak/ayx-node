@@ -1,0 +1,357 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@jupiterbak/ayx-node</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">@jupiterbak/ayx-node</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<!-- markdownlint-disable MD033 MD041 -->
+<p align="center">
+<img src="images/AYX_NODE_LOGO.svg" alt="ayx-node" width="160px"/>
+</p>
+<h1 align="center">Another Alteryx Server TypeScript SDK</h1>
+<p align="center">
+<a href="#getting-started">A NodeJS Library for Alteryx Server</a> - <a href="#typescript-sdk">TypeScript SDK</a> - <a href="#development-proxy"> Development Proxy</a>
+
+<!-- markdownlint-enableMD033 -->
+
+<p><a href="https://github.com/jupiterbak/ayx-node/actions/workflows/build.yml"><img src="https://github.com/jupiterbak/ayx-node/actions/workflows/build.yml/badge.svg" alt="Build" class="img-responsive"></a> <a href="./LICENSE.md"><img src="https://img.shields.io/github/license/jupiterbak/ayx-node" alt="The MIT License" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/@jupiterbak/ayx-node"><img src="https://img.shields.io/npm/v/@jupiterbak/ayx-node/latest.svg?style=flat" alt="npm" class="img-responsive"></a> <img src="https://img.shields.io/npm/dw/@jupiterbak/ayx-node.svg?colorB=009999" alt="downloads" class="img-responsive">
+<a href="https://lgtm.com/projects/g/jupiterbak/ayx-node/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/jupiterbak/ayx-node.svg?logo=lgtm&logoWidth=18" alt="Total alerts" class="img-responsive"></a>
+<a href="https://lgtm.com/projects/g/jupiterbak/ayx-node/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/g/jupiterbak/ayx-node.svg?logo=lgtm&logoWidth=18" alt="Language grade: JavaScript" class="img-responsive"></a>
+<a href="https://github.com/mindsphere/mindconnect-nodejs/releases/latest"><img src="https://img.shields.io/github/release/mindsphere/mindconnect-nodejs.svg" alt="GitHub release" class="img-responsive"></a></p>
+</p>
+
+<p>The repository implements a typescript SDK which can be used to interact with the Alteryx Server APIs. It is compatible with linux, windows and MacOS.</p>
+<p><a href="https://opensource.mindsphere.io/docs/mindconnect-nodejs/sdk/index.html"><img src="https://img.shields.io/badge/SDK-full%20documentation-%23009999.svg" alt="SDK" class="img-responsive"></a></p>
+<p>It implements support for both frontend (browser e.g. angular, react...) and backend development in node.js.</p>
+<h2 id="quick-links">Quick Links</h2>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>what</th>
+<th>where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>documentation</td>
+<td>coming soon</td>
+</tr>
+<tr>
+<td>api-doc</td>
+<td><a href="https://mongodb.github.io/node-mongodb-native/">mongodb.github.io/node-mongodb-native/</a></td>
+</tr>
+<tr>
+<td>npm package</td>
+<td><a href="https://www.npmjs.com/package/@jupiterbak/ayx-node">https://www.npmjs.com/package/@jupiterbak/ayx-node</a></td>
+</tr>
+<tr>
+<td>source</td>
+<td><a href="https://github.com/jupiterbak/ayx-node">https://github.com/jupiterbak/ayx-node</a></td>
+</tr>
+<tr>
+<td>changelog</td>
+<td><a href="https://github.com/jupiterbak/ayx-node/blob/HEAD/CHANGELOG.md">CHANGELOG.md</a></td>
+</tr>
+<tr>
+<td>contributing</td>
+<td><a href="https://github.com/jupiterbak/ayx-node/blob/HEAD/CONTRIBUTING.md">CONTRIBUTING.md</a></td>
+</tr>
+<tr>
+<td>license</td>
+<td><a href="https://github.com/jupiterbak/ayx-node/blob/HEAD/LICENSE.md">LICENSE.md</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation">Installation</h2>
+<p>The recommended way to get started using the nodejs is by using the <code>npm</code> (Node Package Manager) to install the dependency in your project.</p>
+<p>After you&#39;ve created your own project using <code>npm init</code>, you can run:</p>
+<div><pre class="line-numbers"><code class="language-bash">npm install &#64;jupiterbak/ayx-node --save
+# or ...
+yarn add &#64;jupiterbak/ayx-node --save</code></pre></div><p>This will download the this library and add a dependency entry in your <code>package.json</code> file.</p>
+<p>If you are a Typescript user, you will need the Node.js type definitions to use the driver&#39;s definitions:</p>
+<div><pre class="line-numbers"><code class="language-sh">npm install -D &#64;types/node</code></pre></div><h2 id="quick-start">Quick Start</h2>
+<p>This guide will show you how to set up a simple application using Node.js that allows you to interact with an Alteryx server. Its scope is only to list all the workflows present in your workspace.</p>
+<h3 id="create-the-packagejson-file">Create the <code>package.json</code> file</h3>
+<p>First, create a directory where your application will live.</p>
+<div><pre class="line-numbers"><code class="language-bash">mkdir myProject
+cd myProject</code></pre></div><p>Enter the following command and answer the questions to create the initial structure for your new project:</p>
+<div><pre class="line-numbers"><code class="language-bash">npm init -y</code></pre></div><p>Next, install the driver as a dependency.</p>
+<div><pre class="line-numbers"><code class="language-bash">npm install ayx-node --save</code></pre></div><h3 id="connect-to-your-alteryx-server">Connect to your Alteryx server</h3>
+<p>Create a new <strong>app.js</strong> file and add the following code to try read all the workflows listed in your workspace.</p>
+<p>Add code to connect to the server <strong>myProject</strong>:</p>
+<div><pre class="line-numbers"><code class="language-js">const { AlteryxSdk } = require(&#39;&#64;jupiterbak/ayx-node&#39;);
+// or as an es module:
+// import { AlteryxSdk } from &#39;ayx-node&#39;
+
+// Alteryx Server REST API Connection URL
+const url = &#39;http://localhost/webapi/&#39;;
+const clientId = &#39;8DA3C9A7E88FD2Ebe586219847b7f9b5b1bd0f8c31c3b20ca5f2a9ea54e107a173f379128b3b6b1&#39;;
+const clientSecret = &#39;cb1d3a6287f0d86e88169963045512be40dd28771c93d404450d0279c743611a&#39;;
+
+// Instantiate the library
+const sdk = new AlteryxSdk({
+    gateway: url,
+    clientId: clientId,
+    clientSecret: clientSecret
+});
+
+async function main() {
+    // Get the workflow management client. Multiple client are supported as well
+    const wClient = sdk.GetWorkflowManagementClient();
+
+    // List all the workflows in my workspace
+    const workflows = wClient.GetWorkflows();
+  
+    // the following code examples can be pasted here...
+  
+    return workflows;
+  }
+  
+main()
+.then(console.log)
+.catch(console.error);
+</code></pre></div><blockquote>
+<p><strong>NOTE:</strong> Please follow these intructions to read the clientId and the clientSecret of your server.</p>
+<p>Alteryx Help:  <a href="https://help.alteryx.com/developer-help/server-api-overview">https://help.alteryx.com/developer-help/server-api-overview</a></p>
+</blockquote>
+<p>Run your app from the command line with:</p>
+<div><pre class="line-numbers"><code class="language-bash">node app.js</code></pre></div><p>The application should print all the workflows of your workspace into the console.</p>
+<h2 id="running-unit-tests">Running Unit Tests</h2>
+<p>In order to run unit tests, please follow these steps:</p>
+<p>Step 1: Clone this repo.</p>
+<div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/jupiterbak/ayx-node.git
+cd ayx-node</code></pre></div><p>Step 2: Install the dependencies.</p>
+<div><pre class="line-numbers"><code class="language-bash">npm install</code></pre></div><p>Step 3: Set the environment variables: AYX_SERVER_API, AYX_SERVER_CLIENTID, and AYX_SERVER_CLIENTSECRET.</p>
+<div><pre class="line-numbers"><code class="language-bash">export AYX_SERVER_API=&quot;http://localhost/webapi/&quot;
+
+export AYX_SERVER_CLIENTID=&quot;8DA3C9A7E88FD2Ebe586219847b7f9b5b1bd0f8c31c3b20ca5f2a9ea54e107a173f379128b3b6b1&quot;
+
+export AYX_SERVER_CLIENTSECRET=&quot;cb1d3a6287f0d86e88169963045512be40dd28771c93d404450d0279c743611a&quot;
+</code></pre></div><p>Step 4: Start testing. Run the following</p>
+<div><pre class="line-numbers"><code class="language-bash">npm run test</code></pre></div><p>After a sucessfull startup the following output should be printed.</p>
+<div><pre class="line-numbers"><code class="language-console">
+...
+
+    ✔ 2. should list all user groups &#64;sanity
+    ✔ 3. should create new user group
+    ✔ 4. should update user group
+    ✔ 5. should add user to user group (52ms)
+    ✔ 6. should remove user from user group (38ms)
+    ✔ 7. should delete user group (42ms)
+
+  [SDK] Workflow Management Client
+    ✔ 1. should instantiate
+    ✔ 2. should list all existing workflows &#64;sanity
+    ✔ 3. should list all workflows with the name &#39;Dummy_Workflows&#39;
+    ✔ 4. should list all workflows with full view
+    ✔ 5. should list all workflows with full view
+    ✔ 6. the crud operations on workflows should work (286ms)
+    ✔ 7. should list all workflows within my subscription (57ms)
+    ✔ 8. should list all jobs for the first workflow within my subscription (155ms)
+    ✔ 9. should list all the questions for the first workflow within my subscription (174ms)
+    ✔ 10. should return the original package containing the first workflow within my subscription (141ms)
+    ✔ 11. should start a job with the first workflow within my subscription (201ms)
+
+
+  60 passing (3s)
+</code></pre></div><h2 id="supported-alteryx-server-apis">Supported Alteryx Server APIs</h2>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>AYX Server API Version</th>
+<th>SDK - Client</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Collection Management</td>
+<td>V3</td>
+<td></td>
+</tr>
+<tr>
+<td>Credential Management</td>
+<td>V3</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>DCME Connection Management</td>
+<td>V3</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Schedule Management</td>
+<td>V3</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Server Connection Management</td>
+<td>V3</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Usergroup Management</td>
+<td>V3</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>User Management</td>
+<td>V3</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Workflow Management</td>
+<td>V3</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Admin Management Tasks</td>
+<td>V2</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Usergroup Management</td>
+<td>V2</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>User Management</td>
+<td>V2</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Admin Management Tasks</td>
+<td>V1</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Job Management</td>
+<td>V1</td>
+<td>:heavy_check_mark:</td>
+</tr>
+<tr>
+<td>Workflow Management</td>
+<td>V1</td>
+<td>:heavy_check_mark:</td>
+</tr>
+</tbody>
+</table>
+<h2 id="proxy-support">Proxy support</h2>
+<p>Set the http_proxy or HTTP_PROXY environment variable if you need to connect via proxy.</p>
+<div><pre class="line-numbers"><code class="language-bash"># set http proxy environment variable if you are using e.g. fiddler on the localhost.
+
+export HTTP_PROXY=http://localhost:8888</code></pre></div><h2 id="change-log">Change Log</h2>
+<p>Change history can be found in <a href="./CHANGELOG.md"><code>CHANGELOG.md</code></a>.</p>
+<h2 id="bugs--feature-requests">Bugs / Feature Requests</h2>
+<p>If an API is missing and you would like to contribute a Client for it take a look at <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+<h2 id="legal">Legal</h2>
+<p>This project has been released under an <a href="./LICENSE.md">Open Source license</a>. The release may include and/or use APIs to Alteryx’ or third parties’ products or services. In no event shall the project’s Open Source license grant any rights in or to these APIs, products or services that would alter, expand, be inconsistent with, or supersede any terms of separate license agreements applicable to those APIs. “API” means application programming interfaces and their specifications and implementing code that allows other software to communicate with or call on Alteryx’ or third parties’ products or services and may be made available through Alteryx’ or third parties’ products, documentations or otherwise.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

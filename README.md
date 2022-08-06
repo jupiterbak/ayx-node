@@ -17,7 +17,7 @@
 
 </p>
 
-The library comes with the typescript SDK which can be used to access Alteryx Server APIs
+The repository implements a typescript SDK which can be used to interact with the Alteryx Server APIs. It is compatible with linux, windows and MacOS.
 
 [![SDK](https://img.shields.io/badge/SDK-full%20documentation-%23009999.svg)](https://opensource.mindsphere.io/docs/mindconnect-nodejs/sdk/index.html)
 
@@ -168,7 +168,7 @@ Step 4: Start testing. Run the following
 npm run test
 ```
 
-After a sucessfull startup the following output should be printed. Please notice the information that all modules have been sucessfully initialized and started.
+After a sucessfull startup the following output should be printed.
 
 ```console
 
@@ -198,8 +198,6 @@ After a sucessfull startup the following output should be printed. Please notice
   60 passing (3s)
 
 ```
-
-The OPEN ACCESS Rest API is now accessible at [http://localhost:55554](http://localhost:55554). And the Documentation at [http://localhost:55554/docs](http://localhost:55554/docs)
 
 ## Supported Alteryx Server APIs
 

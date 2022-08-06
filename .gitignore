@@ -91,7 +91,7 @@ test/**/*.d.ts
 flows/.config.json
 dist/
 .ayx
-docs
+# docs
 #ignore bower, we copy the files for now to public/assets
 bower.json
 bower_components
