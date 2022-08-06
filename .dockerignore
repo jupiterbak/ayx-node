@@ -1,0 +1,10 @@
+
+.vscode
+.idea
+**.tgz
+.git
+.ayx
+node_modules
+.nyc_output
+bulkupload*
+bulkdownload*
