@@ -3,14 +3,14 @@
 <p align="center">
 <img src="images/AYX_NODE_LOGO.svg" alt="ayx-node" width="160px"/>
 </p>
-<h1 align="center">Alteryx Server TypeScript SDK</h1>
+<h1 align="center">Another Alteryx Server TypeScript SDK</h1>
 <p align="center">
-<a href="#getting-started">NodeJS Library for Alteryx Server</a> - <a href="#typescript-sdk">TypeScript SDK</a> - <a href="#development-proxy"> Development Proxy</a>
+<a href="#getting-started">A NodeJS Library for Alteryx Server</a> - <a href="#typescript-sdk">TypeScript SDK</a> - <a href="#development-proxy"> Development Proxy</a>
 
 <!-- markdownlint-enableMD033 -->
 
 [![Build](https://github.com/jupiterbak/ayx-node/actions/workflows/build.yml/badge.svg)](https://github.com/jupiterbak/ayx-node/actions/workflows/build.yml) [![The MIT License](https://img.shields.io/github/license/jupiterbak/ayx-node)](./LICENSE.md)
-[![npm](https://img.shields.io/npm/v/@mindconnect/mindconnect-nodejs/latest.svg?style=flat)](https://www.npmjs.com/package/@mindconnect/mindconnect-nodejs) ![downloads](https://img.shields.io/npm/dw/@mindconnect/mindconnect-nodejs.svg?colorB=009999)
+[![npm](https://img.shields.io/npm/v/@jupiterbak/ayx-node/latest.svg?style=flat)](https://www.npmjs.com/package/@jupiterbak/ayx-node) ![downloads](https://img.shields.io/npm/dw/@jupiterbak/ayx-node.svg?colorB=009999)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/jupiterbak/ayx-node.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jupiterbak/ayx-node/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/jupiterbak/ayx-node.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jupiterbak/ayx-node/context:javascript)
 [![GitHub release](https://img.shields.io/github/release/mindsphere/mindconnect-nodejs.svg)](https://github.com/mindsphere/mindconnect-nodejs/releases/latest)
@@ -27,10 +27,10 @@ It implements support for both frontend (browser e.g. angular, react...) and bac
 
 | what          | where                                                                                                   |
 | ------------- | ------------------------------------------------------------------------------------------------------- |
-| documentation | [docs.mongodb.com/drivers/node](https://docs.mongodb.com/drivers/node)                                  |
+| documentation | coming soon                                  |
 | api-doc       | [mongodb.github.io/node-mongodb-native/](https://mongodb.github.io/node-mongodb-native/)                |
-| npm package   | [www.npmjs.com/package/mongodb](https://www.npmjs.com/package/mongodb)                                  |
-| source        | [github.com/mongodb/node-mongodb-native](https://github.com/mongodb/node-mongodb-native)                |
+| npm package   | [https://www.npmjs.com/package/@jupiterbak/ayx-node](https://www.npmjs.com/package/@jupiterbak/ayx-node)                                  |
+| source        | [https://github.com/jupiterbak/ayx-node](https://github.com/jupiterbak/ayx-node)                |
 | changelog     | [CHANGELOG.md](https://github.com/jupiterbak/ayx-node/blob/HEAD/CHANGELOG.md)                           |
 | contributing  | [CONTRIBUTING.md](https://github.com/jupiterbak/ayx-node/blob/HEAD/CONTRIBUTING.md)                     |
 | license  | [LICENSE.md](https://github.com/jupiterbak/ayx-node/blob/HEAD/LICENSE.md)
@@ -62,9 +62,9 @@ The recommended way to get started using the nodejs is by using the `npm` (Node 
 After you've created your own project using `npm init`, you can run:
 
 ```bash
-npm install @jupiterbak/ayx-node
+npm install @jupiterbak/ayx-node --save
 # or ...
-yarn add @jupiterbak/ayx-node
+yarn add @jupiterbak/ayx-node --save
 ```
 
 This will download the this library and add a dependency entry in your `package.json` file.
@@ -97,7 +97,7 @@ npm init -y
 Next, install the driver as a dependency.
 
 ```bash
-npm install ayx-node
+npm install ayx-node --save
 ```
 
 ### Connect to your Alteryx server
@@ -112,29 +112,38 @@ Add code to connect to the server **myProject**:
 > if a callback is provided a Promise will not be returned.
 
 ```js
-const { AlteryxSdk } = require('ayx-node');
+const { AlteryxSdk } = require('@jupiterbak/ayx-node');
 // or as an es module:
 // import { AlteryxSdk } from 'ayx-node'
 
 // Alteryx Server REST API Connection URL
-const url = 'http://localhost/webapi/';
+const url = 'http://GM-LT-098.extendthereach.com/webapi/';
 const clientId = '8DA3C9A7E88FD2Ebe586219847b7f9b5b1bd0f8c31c3b20ca5f2a9ea54e107a173f379128b3b6b1';
 const clientSecret = 'cb1d3a6287f0d86e88169963045512be40dd28771c93d404450d0279c743611a';
 
 // Instantiate the library
 const sdk = new AlteryxSdk({
     gateway: url,
-    clientId: clientId,
-    clientSecret: clientSecret
+    clientid: clientId,
+    clientsecret: clientSecret
 });
 
-// Get the workflow management client. Multiple client are supported as well
-const wClient = sdk.GetWorkflowManagementClient();
+async function main() {
+    // Get the workflow management client. Multiple client are supported as well
+    const wClient = sdk.GetWorkflowManagementClient();
 
-// List all the workflows in my workspace
-const workflows = await wClient.GetWorkflows();
+    // List all the workflows in my workspace
+    const workflows = wClient.GetWorkflows();
+  
+    // the following code examples can be pasted here...
+  
+    return workflows;
+  }
+  
+main()
+.then(console.log)
+.catch(console.error);
 
-// Print the workflows
 ```
 
 Run your app from the command line with:

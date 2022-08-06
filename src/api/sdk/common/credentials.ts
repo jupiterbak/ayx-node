@@ -20,12 +20,12 @@ export interface ClientCredentials extends AlteryxCredentials{
 
 export interface SecretCredentials extends AlteryxCredentials{
     gateway: string;
-    clientid: string;
-    clientsecret: string;
+    clientId: string;
+    clientSecret: string;
 }
 
 export function isSecretCredentials(obj: any): boolean {
-    return obj && obj.gateway && obj.clientid && obj.clientsecret;
+    return obj && obj.gateway && obj.clientId && obj.clientSecret;
 }
 
 export function isUserCredentials(obj: any): boolean {

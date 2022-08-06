@@ -120,8 +120,8 @@ export abstract class SdkClient {
 
             this._authenticator = new SecretCredentialAuth(
                 secretCredentials.gateway,
-                secretCredentials.clientid,
-                secretCredentials.clientsecret
+                secretCredentials.clientId,
+                secretCredentials.clientSecret
             );
         } else if (isClientCredentials(credentialsOrAuthorizer)) {
             const credentialsAuth = credentialsOrAuthorizer as ClientCredentials;

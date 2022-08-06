@@ -116,13 +116,13 @@ export const loadAuth = (): SecretCredentials => {
     }
 
     const gateway = process.env.AYX_SERVER_API;
-    const clientid = process.env.AYX_SERVER_CLIENTID;
-    const clientsecret = process.env.AYX_SERVER_CLIENTSECRET;
+    const clientId = process.env.AYX_SERVER_CLIENTID;
+    const clientSecret = process.env.AYX_SERVER_CLIENTSECRET;
 
-    if(gateway && clientid && clientsecret){
+    if(gateway && clientId && clientSecret){
         const newEntry: SecretCredentials = {
-            clientid: clientid,
-            clientsecret: clientsecret,
+            clientId: clientId,
+            clientSecret: clientSecret,
             gateway: gateway
         };
         result = newEntry;
