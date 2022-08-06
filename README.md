@@ -35,26 +35,6 @@ It implements support for both frontend (browser e.g. angular, react...) and bac
 | contributing  | [CONTRIBUTING.md](https://github.com/jupiterbak/ayx-node/blob/HEAD/CONTRIBUTING.md)                     |
 | license  | [LICENSE.md](https://github.com/jupiterbak/ayx-node/blob/HEAD/LICENSE.md)
 
-### Server Core APIs
-
-| Name | AYX Server API Version  | SDK - Client |
-| --- | --- | --- |
-| Admin Management Tasks |  V1 | :heavy_check_mark: |
-| Admin Management Tasks |  V2 | :heavy_check_mark: |
-| Collection Management  |  V3 | :heavy_check_mark: |
-| Credential Management  |  V3 | :heavy_check_mark: |
-| DCME Connection Management  |  V3 | :heavy_check_mark: |
-| Usergroup Management  |  V2 | :heavy_check_mark: |
-| Usergroup Management  |  V3 | :heavy_check_mark: |
-| Job Management  |  V1 | :heavy_check_mark: |
-| Schedule Management  |  V3 | :heavy_check_mark: |
-| Server Connection Management  |  V3 | :heavy_check_mark: |
-| User Management  |  V2 | :heavy_check_mark: |
-| User Management  |  V3 | :heavy_check_mark: |
-| Workflow Management  |  V3 | :heavy_check_mark: |
-| Workflow Management  |  V1 | :heavy_check_mark: |
-
- 
 ## Installation
 
 The recommended way to get started using the nodejs is by using the `npm` (Node Package Manager) to install the dependency in your project.
@@ -106,26 +86,21 @@ Create a new **app.js** file and add the following code to try read all the work
 
 Add code to connect to the server **myProject**:
 
-> **NOTE:** All the examples below use async/await syntax.
->
-> However, all async API calls support an optional callback as the final argument,
-> if a callback is provided a Promise will not be returned.
-
 ```js
 const { AlteryxSdk } = require('@jupiterbak/ayx-node');
 // or as an es module:
 // import { AlteryxSdk } from 'ayx-node'
 
 // Alteryx Server REST API Connection URL
-const url = 'http://GM-LT-098.extendthereach.com/webapi/';
+const url = 'http://localhost/webapi/';
 const clientId = '8DA3C9A7E88FD2Ebe586219847b7f9b5b1bd0f8c31c3b20ca5f2a9ea54e107a173f379128b3b6b1';
 const clientSecret = 'cb1d3a6287f0d86e88169963045512be40dd28771c93d404450d0279c743611a';
 
 // Instantiate the library
 const sdk = new AlteryxSdk({
     gateway: url,
-    clientid: clientId,
-    clientsecret: clientSecret
+    clientId: clientId,
+    clientSecret: clientSecret
 });
 
 async function main() {
@@ -146,6 +121,11 @@ main()
 
 ```
 
+
+> **NOTE:** Please follow these intructions to read the clientId and the clientSecret of your server.
+>
+> Alteryx Help:  [https://help.alteryx.com/developer-help/server-api-overview](https://help.alteryx.com/developer-help/server-api-overview)
+
 Run your app from the command line with:
 
 ```bash
@@ -153,6 +133,94 @@ node app.js
 ```
 
 The application should print all the workflows of your workspace into the console.
+
+
+## Running Unit Tests
+In order to run unit tests, please follow these steps:
+
+Step 1: Clone this repo.
+
+```bash
+git clone https://github.com/jupiterbak/ayx-node.git
+cd ayx-node
+```
+
+Step 2: Install the dependencies.
+
+```bash
+npm install
+```
+
+Step 3: Set the environment variables: AYX_SERVER_API, AYX_SERVER_CLIENTID, and AYX_SERVER_CLIENTSECRET.
+
+```bash
+export AYX_SERVER_API="http://localhost/webapi/"
+
+export AYX_SERVER_CLIENTID="8DA3C9A7E88FD2Ebe586219847b7f9b5b1bd0f8c31c3b20ca5f2a9ea54e107a173f379128b3b6b1"
+
+export AYX_SERVER_CLIENTSECRET="cb1d3a6287f0d86e88169963045512be40dd28771c93d404450d0279c743611a"
+
+```
+
+Step 4: Start testing. Run the following
+
+```bash
+npm run test
+```
+
+After a sucessfull startup the following output should be printed. Please notice the information that all modules have been sucessfully initialized and started.
+
+```console
+
+...
+
+    ✔ 2. should list all user groups @sanity
+    ✔ 3. should create new user group
+    ✔ 4. should update user group
+    ✔ 5. should add user to user group (52ms)
+    ✔ 6. should remove user from user group (38ms)
+    ✔ 7. should delete user group (42ms)
+
+  [SDK] Workflow Management Client
+    ✔ 1. should instantiate
+    ✔ 2. should list all existing workflows @sanity
+    ✔ 3. should list all workflows with the name 'Dummy_Workflows'
+    ✔ 4. should list all workflows with full view
+    ✔ 5. should list all workflows with full view
+    ✔ 6. the crud operations on workflows should work (286ms)
+    ✔ 7. should list all workflows within my subscription (57ms)
+    ✔ 8. should list all jobs for the first workflow within my subscription (155ms)
+    ✔ 9. should list all the questions for the first workflow within my subscription (174ms)
+    ✔ 10. should return the original package containing the first workflow within my subscription (141ms)
+    ✔ 11. should start a job with the first workflow within my subscription (201ms)
+
+
+  60 passing (3s)
+
+```
+
+The OPEN ACCESS Rest API is now accessible at [http://localhost:55554](http://localhost:55554). And the Documentation at [http://localhost:55554/docs](http://localhost:55554/docs)
+
+## Supported Alteryx Server APIs
+
+| Name | AYX Server API Version  | SDK - Client |
+| --- | --- | --- |
+| Collection Management  |  V3 |  |
+| Credential Management  |  V3 | :heavy_check_mark: |
+| DCME Connection Management  |  V3 | :heavy_check_mark: |
+| Schedule Management  |  V3 | :heavy_check_mark: |
+| Server Connection Management  |  V3 | :heavy_check_mark: |
+| Usergroup Management  |  V3 | :heavy_check_mark: |
+| User Management  |  V3 | :heavy_check_mark: |
+| Workflow Management  |  V3 | :heavy_check_mark: |
+| Admin Management Tasks |  V2 | :heavy_check_mark: |
+| Usergroup Management  |  V2 | :heavy_check_mark: |
+| User Management  |  V2 | :heavy_check_mark: |
+| Admin Management Tasks |  V1 | :heavy_check_mark: |
+| Job Management  |  V1 | :heavy_check_mark: |
+| Workflow Management  |  V1 | :heavy_check_mark: |
+
+ 
 
 ## Proxy support
 
