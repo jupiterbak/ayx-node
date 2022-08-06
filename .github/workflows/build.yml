@@ -10,6 +10,9 @@ jobs:
   build:
     environment: CI
     runs-on: ubuntu-latest
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
     - name: Setup Node.js environment
@@ -23,7 +26,7 @@ jobs:
         npm install
     - name: build
       run: |
-        npm run ts:build              
+        npm run ts:build   
     - name: license check
       run: |
         npm run license > license-checker.txt
@@ -33,7 +36,7 @@ jobs:
         rm -rf dist/
         npm pack
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.3
+      uses: actions/upload-artifact@v3.1.0
       with:
           path: |
             *.tgz
