@@ -42,27 +42,3 @@ jobs:
           path: |
             *.tgz
             license-checker.txt
-  generate-doc:
-    # prevent subsequent commits from triggering the job multiple times
-    needs: build
-    concurrency:
-      group: ci-${{ github.ref }}
-      cancel-in-progress: true
-    runs-on: ubuntu-latest
-    environment: CI
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup NodeJS
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16.x
-    - name: install dependencies
-      run: |
-        npm install
-    - name: Build Docs
-      run: npm run doc
-    - name: Open Pull Request
-      uses: peter-evans/create-pull-request@v4
-      with:
-        title: 'docs: generate docs from latest main'
-        delete-branch: true
