@@ -3,7 +3,7 @@ import "url-search-params-polyfill";
 import { WorkflowManagementClient, AlteryxSdk } from "../src/api/sdk";
 import { decrypt, loadAuth } from "../src/api/utils";
 import { getPasskeyForUnitTest} from "./test-utils";
-import { readFileSync} from 'fs';
+import { readFileSync} from "fs";
 
 chai.should();
 

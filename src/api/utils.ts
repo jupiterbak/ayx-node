@@ -3,9 +3,9 @@ import * as crypto from "crypto";
 import * as fs from "fs";
 import * as os from "os";
 import { URL } from "url";
-import { AlteryxCredentials, SecretCredentials } from "./sdk/common/credentials";
+import { SecretCredentials } from "./sdk/common/credentials";
 
-const groupby = require("json-groupby");
+//const groupby = require("json-groupby");
 
 export type authJson = {
     auth: string;

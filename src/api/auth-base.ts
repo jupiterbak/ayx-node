@@ -1,8 +1,6 @@
-import fetch from "cross-fetch";
 import * as debug from "debug";
-import * as jwt from "jsonwebtoken";
 import { AlteryxConnectBase, TokenRotation } from "./alteryx-base";
-import { isUrl, retry } from "./utils";
+import { isUrl } from "./utils";
 
 const log = debug("alteryx-authbase");
 

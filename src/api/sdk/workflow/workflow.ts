@@ -1,5 +1,4 @@
 import { toQueryString } from "../../utils";
-import { SdkClient } from "../common/sdk-client";
 import { SDKModels } from "../models";
 import { worflowDataTemplate, worflowVersionDataTemplate} from "./worflow-data-template";
 import {WorkflowManagementClientV1} from "./workflowV1"

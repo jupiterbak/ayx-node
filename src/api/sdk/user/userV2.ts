@@ -1,4 +1,3 @@
-import { toQueryString } from "../../utils";
 import { SdkClient } from "../common/sdk-client";
 import { SDKModelsV2 } from "../models/modelsV2";
 import { userDataTemplate } from "./user-data-template";
