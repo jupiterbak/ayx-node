@@ -1,7 +1,7 @@
 
 <!-- markdownlint-disable MD033 MD041 -->
 <p align="center">
-<img src="images/AYX_NODE_LOGO.svg" alt="ayx-node" width="300px"/>
+<img src="images/AYX_NODE_LOGO.svg" alt="ayx-node" width="160px"/>
 </p>
 <h1 align="center">Alteryx Server TypeScript SDK</h1>
 <p align="center">
