@@ -1,7 +1,7 @@
 
 <!-- markdownlint-disable MD033 MD041 -->
 <p align="center">
-<img src="images/mindconnect-nodejs-new-logo.svg" alt="ayx-node" width="300px"/>
+<img src="images/AYX_NODE_LOGO.svg" alt="ayx-node" width="300px"/>
 </p>
 <h1 align="center">Alteryx Server TypeScript SDK</h1>
 <p align="center">
@@ -11,7 +11,8 @@
 
 [![Build](https://github.com/jupiterbak/ayx-node/actions/workflows/build.yml/badge.svg)](https://github.com/jupiterbak/ayx-node/actions/workflows/build.yml) [![The MIT License](https://img.shields.io/github/license/jupiterbak/ayx-node)](./LICENSE.md)
 [![npm](https://img.shields.io/npm/v/@mindconnect/mindconnect-nodejs/latest.svg?style=flat)](https://www.npmjs.com/package/@mindconnect/mindconnect-nodejs) ![downloads](https://img.shields.io/npm/dw/@mindconnect/mindconnect-nodejs.svg?colorB=009999)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/mindsphere/mindconnect-nodejs.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mindsphere/mindconnect-nodejs/context:javascript)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/jupiterbak/ayx-node.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jupiterbak/ayx-node/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/jupiterbak/ayx-node.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/jupiterbak/ayx-node/context:javascript)
 [![GitHub release](https://img.shields.io/github/release/mindsphere/mindconnect-nodejs.svg)](https://github.com/mindsphere/mindconnect-nodejs/releases/latest)
 
 </p>
@@ -61,9 +62,9 @@ The recommended way to get started using the nodejs is by using the `npm` (Node 
 After you've created your own project using `npm init`, you can run:
 
 ```bash
-npm install ayx-node
+npm install @jupiterbak/ayx-node
 # or ...
-yarn add ayx-node
+yarn add @jupiterbak/ayx-node
 ```
 
 This will download the this library and add a dependency entry in your `package.json` file.

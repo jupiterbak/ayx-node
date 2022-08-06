@@ -1,6 +1,6 @@
 {
     "name": "@jupiterbak/ayx-node",
-    "version": "0.1.1-0",
+    "version": "0.1.3",
     "description": "Another Alteryx Command Line Interface",
     "main": "./dist/src/index.js",
     "browser": "./dist/src/index.bundle.js",
