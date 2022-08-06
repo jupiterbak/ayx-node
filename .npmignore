@@ -3,6 +3,8 @@
 .vscode
 .idea
 **.tgz
+.gitattributes
+.dccache
 agentconfig*.json
 images/
 docs/
@@ -23,6 +25,11 @@ node8.Dockerfile
 docs.yml
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
+ALTERYXAPINOTICE.md
+CHANGELOG.md
+LICENSE.md
+README.md
+SECURITY.md
 private.key
 public.pem
 mdsp_meta.yml
@@ -53,7 +60,13 @@ signal-validation-*.json
 clitest
 
 # pkg files
+mindconnect-nodejs-linux
+mindconnect-nodejs-macos
+mindconnect-nodejs-win.exe
 
+# mindsphere files
+*.mdsp.json
+*.mdsp.js
 
 # Spellchecker files
 .spelling
@@ -64,3 +77,9 @@ markdown-help/**
 ## downloaded assets models
 
 *.mdsp.assetmodel/**
+
+## all others
+*.md
+
+rollup.config.js
+.snyk
