@@ -86,7 +86,7 @@ Create a new **app.js** file inside the folder **myProject** and add the followi
 ```js
 const { AlteryxSdk } = require('@jupiterbak/ayx-node');
 // or as an es module:
-// import { AlteryxSdk } from 'ayx-node'
+// import { AlteryxSdk } from '@jupiterbak/ayx-node'
 
 // Alteryx Server REST API Connection URL
 const url = 'http://localhost/webapi/';
@@ -171,28 +171,29 @@ After a sucessfull startup the following output should be printed.
 
 ...
 
+    ✔ 1. should instantiate
     ✔ 2. should list all user groups @sanity
     ✔ 3. should create new user group
     ✔ 4. should update user group
-    ✔ 5. should add user to user group (52ms)
-    ✔ 6. should remove user from user group (38ms)
-    ✔ 7. should delete user group (42ms)
+    ✔ 5. should add user to user group (49ms)
+    ✔ 6. should remove user from user group
+    ✔ 7. should delete user group
 
   [SDK] Workflow Management Client
     ✔ 1. should instantiate
     ✔ 2. should list all existing workflows @sanity
-    ✔ 3. should list all workflows with the name 'Dummy_Workflows'
+    ✔ 3. should list all workflows with a name
     ✔ 4. should list all workflows with full view
     ✔ 5. should list all workflows with full view
-    ✔ 6. the crud operations on workflows should work (286ms)
-    ✔ 7. should list all workflows within my subscription (57ms)
-    ✔ 8. should list all jobs for the first workflow within my subscription (155ms)
+    ✔ 6. the crud operations on workflows should work (229ms)
+    ✔ 7. should list all workflows within my subscription (47ms)
+    ✔ 8. should list all jobs for the first workflow within my subscription (704ms)
     ✔ 9. should list all the questions for the first workflow within my subscription (174ms)
-    ✔ 10. should return the original package containing the first workflow within my subscription (141ms)
-    ✔ 11. should start a job with the first workflow within my subscription (201ms)
+    ✔ 10. should return the original package containing the first workflow within my subscription (587ms)
+    ✔ 11. should start a job with the first workflow within my subscription (195ms)
 
 
-  60 passing (3s)
+  69 passing (6s)
 
 ```
 
@@ -200,7 +201,7 @@ After a sucessfull startup the following output should be printed.
 
 | Name | AYX Server API Version  | SDK - Client |
 | --- | --- | --- |
-| Collection Management  |  V3 |  |
+| Collection Management  |  V3 | :heavy_check_mark: |
 | Credential Management  |  V3 | :heavy_check_mark: |
 | DCME Connection Management  |  V3 | :heavy_check_mark: |
 | Schedule Management  |  V3 | :heavy_check_mark: |

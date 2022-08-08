@@ -7,6 +7,7 @@ import { DCMEConnectionClient } from "../dcme/dcmeconnections";
 import { ServerConnectionClient } from "../serverconnections/serverconnection";
 import { JobManagementClient } from "../job/job";
 import { AdminManagementClient } from "../admin/admin";
+import { CollectionManagementClient } from "../collection/collection";
 import { SdkClient } from "./sdk-client";
 
 /**
@@ -156,4 +157,18 @@ export class AlteryxSdk extends SdkClient {
         return this._adminManagementClient;
     }
     private _adminManagementClient?: AdminManagementClient;
+
+    /**
+     * * Get Collection Management Client
+     *
+     * @returns {CollectionManagementClient}
+     *
+     * @memberOf AlteryxSdk
+     */
+     public GetCollectionManagementClient(): CollectionManagementClient {
+        this._collectionManagementClient =
+            this._collectionManagementClient || new CollectionManagementClient(this._authenticator);
+        return this._collectionManagementClient;
+    }
+    private _collectionManagementClient?: CollectionManagementClient;
 }

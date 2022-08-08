@@ -12,3 +12,4 @@ export * from "./dcme/dcmeconnections";
 export * from "./serverconnections/serverconnection";
 export * from "./job/job";
 export * from "./admin/admin";
+export * from "./collection/collection";
