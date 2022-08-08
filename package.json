@@ -1,6 +1,6 @@
 {
     "name": "@jupiterbak/ayx-node",
-    "version": "0.1.9-rc.4", 
+    "version": "0.1.10", 
     "description": "Another Alteryx Server SDK",
     "main": "./dist/src/index.js",
     "browser": "./dist/src/index.bundle.js",
