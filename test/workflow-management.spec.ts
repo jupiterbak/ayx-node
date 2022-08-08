@@ -33,9 +33,13 @@ describe("[SDK] Workflow Management Client", () => {
         workflows.length!.should.be.greaterThan(0);
     });
 
-    it("3. should list all workflows with the name 'Dummy_Workflows'", async () => {
-        const workflows = await wClient.GetWorkflows({ name: "Dummy_Workflows" });
+    it("3. should list all workflows with a name", async () => {
+        const workflows = await wClient.GetWorkflows();
         workflows.length!.should.be.greaterThan(0);
+
+        const workflow = workflows[0];
+        const _workflows = await wClient.GetWorkflows({ name: workflow.name });
+        _workflows.length!.should.be.greaterThan(0);
     });
 
     it("4. should list all workflows with full view", async () => {

@@ -76,7 +76,7 @@ npm init -y
 Next, install the this SDK as a dependency.
 
 ```bash
-npm install ayx-node --save
+npm install @jupiterbak/ayx-node --save
 ```
 
 ### Connect to your Alteryx server

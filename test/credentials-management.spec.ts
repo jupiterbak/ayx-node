@@ -27,12 +27,12 @@ describe("[SDK] Credential Management Client", () => {
         credentialsClient.should.not.be.undefined;
     });
 
-    it("2. should list all existing schedules @sanity", async () => {
+    it("2. should list all existing credentials @sanity", async () => {
         const schedules = await credentialsClient.GetCredentials();
         schedules.length!.should.be.greaterThanOrEqual(0);
     });
 
-    it("3. should list all existing schedules with full view @sanity", async () => {
+    it("3. should list all existing credentials with full view @sanity", async () => {
         const schedules = await credentialsClient.GetCredentials({ view: "Full" });
         schedules.length!.should.be.greaterThanOrEqual(0);
     });
