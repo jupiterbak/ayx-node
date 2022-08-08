@@ -87,6 +87,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AuthBase.html" data-type="entity-link" >AuthBase</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CollectionManagementClient.html" data-type="entity-link" >CollectionManagementClient</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CredentialAuth.html" data-type="entity-link" >CredentialAuth</a>
                             </li>
                             <li class="link">
