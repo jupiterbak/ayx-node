@@ -112,6 +112,7 @@ public.pem
 .mochatest
 .mochatest/**.json
 report.xml
+report.json
 
 # nyc
 .nyc_output

@@ -1,6 +1,6 @@
 {
     "name": "@jupiterbak/ayx-node",
-    "version": "0.1.10-rc1", 
+    "version": "0.1.10-rc1",
     "description": "Another Alteryx Server SDK",
     "main": "./dist/src/index.js",
     "browser": "./dist/src/index.bundle.js",
@@ -9,7 +9,7 @@
         "clean": "rimraf dist/",
         "clean:dist": "rimraf dist/",
         "prepare": "npm run clean && npm run ts:build:dist && npm run browser:build",
-        "test": "npm run ts:build && mocha --colors --timeout=300000",
+        "test": "npm run ts:build && mocha --colors --reporter json --reporter-options output=report.json --timeout=300000",
         "test-collection": "npm run ts:build && mocha --colors --grep Collection --timeout=300000",
         "sanity": "npm run ts:build && mocha --colors --grep @sanity --timeout=300000",
         "s4f": "npm run ts:build && mocha --colors --grep @s4f --timeout=300000",
