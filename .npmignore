@@ -8,7 +8,6 @@
 agentconfig*.json
 images/
 docs/
-src/
 test/
 templates/
 .dockerignore
