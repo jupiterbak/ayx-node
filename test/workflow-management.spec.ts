@@ -86,11 +86,13 @@ describe("[SDK] Workflow Management Client", () => {
         const newVersionWorkflow = await wClient.AddVersionToWorkflow(
             updatedWorkflow.id!,
             {
+                file: Buffer.from(dummyWorkflowFileBuffer),
                 name: updatedWorkflow.name, 
                 ownerId: updatedWorkflow.ownerId, 
                 othersMayDownload: updatedWorkflow.othersMayDownload, 
                 othersCanExecute: updatedWorkflow.othersCanExecute,
                 makePublished: true,
+                workflowCredentialType: SDKModels.UpdateWorkflowContract.WorkflowCredentialTypeEnum.Default.toString(),
                 executionMode: updatedWorkflow.executionMode?updatedWorkflow.executionMode.toString():SDKModels.WorkflowView.ExecutionModeEnum.Standard.toString(), 
                }
         );
@@ -183,7 +185,8 @@ function getDummyWorkflow(fileName:string, content: Buffer, ownerId: string){
         isReadyForMigration: true, 
         othersMayDownload: true, 
         othersCanExecute: true, 
-        executionMode: SDKModels.UpdateWorkflowContract.ExecutionModeEnum.Standard.toString(), 
+        executionMode: SDKModels.UpdateWorkflowContract.ExecutionModeEnum.Standard.toString(),
+        workflowCredentialType: SDKModels.UpdateWorkflowContract.WorkflowCredentialTypeEnum.Default.toString(), 
         comments: "unit.test.alteryx.rocks", 
        }
 }
@@ -202,6 +205,8 @@ function converWorkflowViewToWorkflowUpdateContract(view: SDKModels.WorkflowView
         othersMayDownload: view.othersMayDownload,
         othersCanExecute: view.othersCanExecute,
         executionMode: view.executionMode,
-        hasPrivateDataExemption: view.hasPrivateDataExemption
+        hasPrivateDataExemption: view.hasPrivateDataExemption,
+        workflowCredentialType: SDKModels.UpdateWorkflowContract.WorkflowCredentialTypeEnum.Default,
+        credentialId: "",
        } as SDKModels.UpdateWorkflowContract
 }

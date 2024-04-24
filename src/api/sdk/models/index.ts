@@ -2001,6 +2001,18 @@ export namespace SDKModels {
          * @memberof UpdateWorkflowContract
          */
         hasPrivateDataExemption?: boolean;
+        /**
+         * 
+         * @type {string}
+         * @memberof UpdateWorkflowContract
+         */
+        workflowCredentialType: UpdateWorkflowContract.WorkflowCredentialTypeEnum;
+        /**
+         * 
+         * @type {string}
+         * @memberof UpdateWorkflowContract
+         */
+        credentialId: string;
     }
 
     /**
@@ -2016,6 +2028,142 @@ export namespace SDKModels {
             Safe = <any> 'Safe',
             SemiSafe = <any> 'SemiSafe',
             Standard = <any> 'Standard'
+        }
+
+        /**
+         * @export
+         * @enum {string}
+         */
+        export enum WorkflowCredentialTypeEnum {
+            Default = <any> 'Default',
+            Required = <any> 'Required',
+            Specific = <any> 'Specific'
+        }
+    }
+
+    /**
+     * 
+     * @export
+     * @interface WorkflowQuestionItemView
+     */
+    export interface WorkflowQuestionItemView {
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowQuestionItemView
+         */
+        key?: string;
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowQuestionItemView
+         */
+        value?: string;
+    }
+
+    /**
+     * 
+     * @export
+     * @interface WorkflowQuestionView
+     */
+    export interface WorkflowQuestionView {
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowQuestionView
+         */
+        name?: string;
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowQuestionView
+         */
+        questionType?: string;
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowQuestionView
+         */
+        description?: string;
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowQuestionView
+         */
+        value?: string;
+        /**
+         * 
+         * @type {boolean}
+         * @memberof WorkflowQuestionView
+         */
+        multiple?: boolean;
+        /**
+         * 
+         * @type {Array<WorkflowQuestionItemView>}
+         * @memberof WorkflowQuestionView
+         */
+        items?: Array<WorkflowQuestionItemView>;
+    }
+
+    /**
+     * Represents limited information about a workflow's job
+     * @export
+     * @interface WorkflowJobView
+     */
+    export interface WorkflowJobView {
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowJobView
+         */
+        id?: string;
+        /**
+         * 
+         * @type {Date}
+         * @memberof WorkflowJobView
+         */
+        createDate?: Date;
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowJobView
+         */
+        status?: WorkflowJobView.StatusEnum;
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowJobView
+         */
+        priority?: string;
+        /**
+         * 
+         * @type {string}
+         * @memberof WorkflowJobView
+         */
+        workerTag?: string;
+        /**
+         * 
+         * @type {boolean}
+         * @memberof WorkflowJobView
+         */
+        runWithE2?: boolean;
+    }
+
+    /**
+     * @export
+     * @namespace WorkflowJobView
+     */
+    export namespace WorkflowJobView {
+        /**
+         * @export
+         * @enum {string}
+         */
+        export enum StatusEnum {
+            Created = <any> 'Created',
+            Cancelled = <any> 'Cancelled',
+            Running = <any> 'Running',
+            Queued = <any> 'Queued',
+            Completed = <any> 'Completed'
         }
     }
 
